@@ -212,15 +212,15 @@ public class GuiDropsWindow {
             DropEntry entry = currentResult.drops.get(hoveredItemIndex);
 
             if (mouseButton == 0) {
-                // Left click - show recipes that use this item (uses)
-                if (JEIHelper.showItemUses(entry.stack)) {
+                // Left click - show recipes that produce this item
+                if (JEIHelper.showItemRecipes(entry.stack)) {
                     hideForJEI();
 
                     return true;
                 }
             } else if (mouseButton == 1) {
-                // Right click - show recipes that produce this item (recipes)
-                if (JEIHelper.showItemRecipes(entry.stack)) {
+                // Right click - show recipes that use this item
+                if (JEIHelper.showItemUses(entry.stack)) {
                     hideForJEI();
 
                     return true;
@@ -245,19 +245,19 @@ public class GuiDropsWindow {
             return true;
         }
 
-        // JEI keybinds - U for recipes (uses), R for uses (recipes that output this item)
+        // JEI keybinds follow the standard JEI mapping: U shows uses, R shows recipes.
         if (hoveredItemIndex >= 0 && currentResult != null && hoveredItemIndex < currentResult.drops.size()) {
             DropEntry entry = currentResult.drops.get(hoveredItemIndex);
 
             if (keyCode == Keyboard.KEY_U) {
-                // U key - show recipes that use this item (uses)
+                // U key - show recipes that use this item
                 if (JEIHelper.showItemUses(entry.stack)) {
                     hideForJEI();
 
                     return true;
                 }
             } else if (keyCode == Keyboard.KEY_R) {
-                // R key - show recipes that produce this item (recipes)
+                // R key - show recipes that produce this item
                 if (JEIHelper.showItemRecipes(entry.stack)) {
                     hideForJEI();
 

@@ -5,6 +5,10 @@
   "type": "object",
   "additionalProperties": false,
   "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "Optional editor schema reference; ignored by the runtime loader."
+    },
     "version": {
       "type": "integer",
       "minimum": 1,
@@ -90,8 +94,55 @@
             "type": "string"
           },
           "description": "BiomeDictionary.Type names such as OCEAN, SWAMP, NETHER, or END."
+        },
+        "allTypes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Alternative to 'types', when ALL of the listed types must be present in the biome."
         }
       }
+    },
+    "summonItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/resourceLocation"
+        },
+        "metadata": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 1
+        }
+      },
+      "required": ["id"]
+    },
+    "summon": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "items": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/summonItem"
+          }
+        },
+        "onBlock": {
+          "$ref": "#/$defs/resourceLocation"
+        },
+        "onEntity": {
+          "$ref": "#/$defs/resourceLocation"
+        }
+      },
+      "required": ["items"]
     },
     "entry": {
       "type": "object",
@@ -99,6 +150,10 @@
       "properties": {
         "entityId": {
           "$ref": "#/$defs/resourceLocation"
+        },
+        "parent": {
+          "$ref": "#/$defs/resourceLocation",
+          "description": "Optional. Use the conditions of an existing parent entry instead of repeating them. Must be a declared entityId in the file."
         },
         "spawnReason": {
           "type": "string",
@@ -158,6 +213,10 @@
         "requiresNether": {
           "type": "boolean"
         },
+        "summon": {
+          "$ref": "#/$defs/summon",
+          "description": "Items used to summon the entity. The GUI resolves each item dynamically for its localized tooltip and JEI navigation. onBlock and onEntity are optional targets; if both are given, onBlock takes precedence."
+        },
         "hints": {
           "type": "array",
           "items": {
@@ -165,7 +224,11 @@
           }
         }
       },
-      "required": ["entityId", "spawnReason"]
+      "required": ["entityId"],
+      "anyOf": [
+        {"required": ["spawnReason"]},
+        {"required": ["parent"]}
+      ]
     }
   }
 }

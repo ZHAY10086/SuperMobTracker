@@ -146,6 +146,7 @@ public class SpawnConditionAnalyzer {
         public final String dimension;
         public final int dimensionId;
         public final String spawnReason;
+        public final SummonInfo summon;
 
         public SpawnConditions(@Nonnull List<String> biomes,
                                @Nullable List<String> groundBlocks,
@@ -158,7 +159,7 @@ public class SpawnConditionAnalyzer {
                                @Nullable String dimension,
                                int dimensionId) {
             this(biomes, groundBlocks, lightLevels, yLevels, timeOfDay, weather, hints,
-                 requiresSky, null, null, null, dimension, dimensionId, NATURAL_SPAWN_REASON);
+                 requiresSky, null, null, null, dimension, dimensionId, NATURAL_SPAWN_REASON, null);
         }
 
         public SpawnConditions(@Nonnull List<String> biomes,
@@ -175,7 +176,7 @@ public class SpawnConditionAnalyzer {
                                @Nullable String dimension,
                                int dimensionId) {
               this(biomes, groundBlocks, lightLevels, yLevels, timeOfDay, weather, hints,
-                  requiresSky, moonPhases, requiresSlimeChunk, requiresNether, dimension, dimensionId, NATURAL_SPAWN_REASON);
+                  requiresSky, moonPhases, requiresSlimeChunk, requiresNether, dimension, dimensionId, NATURAL_SPAWN_REASON, null);
            }
 
            public SpawnConditions(@Nonnull List<String> biomes,
@@ -192,6 +193,25 @@ public class SpawnConditionAnalyzer {
                                   @Nullable String dimension,
                                   int dimensionId,
                                   @Nullable String spawnReason) {
+            this(biomes, groundBlocks, lightLevels, yLevels, timeOfDay, weather, hints,
+                requiresSky, moonPhases, requiresSlimeChunk, requiresNether, dimension, dimensionId, spawnReason, null);
+        }
+
+        public SpawnConditions(@Nonnull List<String> biomes,
+                               @Nullable List<String> groundBlocks,
+                               @Nonnull List<Integer> lightLevels,
+                               @Nonnull List<Integer> yLevels,
+                               @Nullable List<int[]> timeOfDay,
+                               @Nullable List<String> weather,
+                               @Nonnull List<String> hints,
+                               @Nullable Boolean requiresSky,
+                               @Nullable List<Integer> moonPhases,
+                               @Nullable Boolean requiresSlimeChunk,
+                               @Nullable Boolean requiresNether,
+                               @Nullable String dimension,
+                               int dimensionId,
+                               @Nullable String spawnReason,
+                               @Nullable SummonInfo summon) {
             this.biomes = biomes;
             this.groundBlocks = groundBlocks;
             this.lightLevels = lightLevels;
@@ -206,6 +226,7 @@ public class SpawnConditionAnalyzer {
             this.dimension = dimension;
             this.dimensionId = dimensionId;
             this.spawnReason = spawnReason;
+            this.summon = summon;
         }
 
         private boolean hasNonNaturalSpawnReason() {
@@ -244,6 +265,38 @@ public class SpawnConditionAnalyzer {
             return Utils.formatRangeFromList(lightLevels, ",").contains(",") ||
                    Utils.formatRangeFromList(yLevels, ",").contains(",") ||
                    (lightLevels.isEmpty() || yLevels.isEmpty()) && !failed();
+        }
+    }
+
+    /**
+     * Data-driven item and target information for a non-natural summon.
+     */
+    public static final class SummonInfo {
+        public final List<SummonItem> items;
+        @Nullable public final String onBlock;
+        @Nullable public final String onEntity;
+
+        public SummonInfo(@Nonnull List<SummonItem> items,
+                          @Nullable String onBlock,
+                          @Nullable String onEntity) {
+            this.items = new ArrayList<>(items);
+            this.onBlock = onBlock;
+            this.onEntity = onEntity;
+        }
+    }
+
+    /**
+     * An item stack used by a summon. Metadata supports 1.12 sub-items such as skull variants.
+     */
+    public static final class SummonItem {
+        public final String itemId;
+        public final int metadata;
+        public final int count;
+
+        public SummonItem(String itemId, int metadata, int count) {
+            this.itemId = itemId;
+            this.metadata = metadata;
+            this.count = count;
         }
     }
 

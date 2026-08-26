@@ -25,7 +25,9 @@ A client-side Minecraft 1.12.2 mod that lets you select mobs to view spawn condi
 ## External Spawn Hints
 Some mobs do not use normal biome spawn tables at all, so the analyzer has nothing native to sample from. For those cases, Super Mob Tracker can load fallback spawn metadata from `config/supermobtracker/spawn_hints.json`.
 
-The parser accepts biome IDs and biome dictionary types in the same entry. Dimension ID is optional: if omitted, the mod tries to infer it from the resolved biome list and otherwise falls back to the current dimension. Known spawn reasons such as `worldgen`, `structure`, `spawner`, `event`, and `command` get built-in labels in the GUI, while unknown values are displayed as-is. Bundled defaults are loaded first, and the user config file overrides them by entity ID.
+The parser accepts biome IDs and biome dictionary types in the same entry. `types` matches any listed type, while `allTypes` requires every listed type (for example, `COLD` and `SNOWY`). Dimension ID is optional: if omitted, the mod tries to infer it from the resolved biome list and otherwise falls back to the current dimension. Known spawn reasons such as `worldgen`, `structure`, `spawner`, `event`, and `command` get built-in labels in the GUI, while unknown values are displayed as-is. Bundled defaults are loaded first, and the user config file overrides them by entity ID.
+
+For an item-based summon, add a `summon` object with one or more item registry IDs. The GUI resolves those IDs at runtime, so the displayed item name and hover tooltip always come from the registered items. The GUI comes with JEI handling for these items, when available. `onBlock` or `onEntity` can be used to specify the target the item(s) must be used on.
 
 Validation notes: `lightLevels` use the vanilla 0-15 range, `timeOfDay` uses Minecraft day ticks from 0 to 23999, and `weather` accepts `clear`, `rain`, or `thunder`.
 

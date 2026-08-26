@@ -8,14 +8,13 @@ The format is based on Keep a Changelog and this project adheres to Semantic Ver
 - Semantic Versioning: https://semver.org/spec/v2.0.0.html
 
 
-## [1.5.0] - 2026-08-21
+## [1.5.0] - 2026-08-26
 ### Added
 - Register the complete loot tables of every mob into JEI, via a static drops file. This file needs to be generated first, using the `/smtlootdump` command, which will create a zipped JSON file containing all the loot tables.
-
-
-## [1.4.2] - 2026-08-14
-### Added
-- Add spawn conditions for (most) mobs of Ice and Fire, Erebus, Twilight Forest, and The Betweenlands, which didn't have any native biome spawn conditions before (due to custom spawn logic). Some may still be missing, you can PR them to the bundled spawn_hints.defaults.json file, or add them to your own spawn_hints.json file (in config).
+- Add spawn conditions for (most) mobs of AoA/Aether/Fish's Undead/Ice and Fire/Erebus/Twilight Forest/Betweenlands, which didn't have any native biome spawn conditions before (due to custom spawn logic). Some may still be missing, you can PR them to the bundled spawn_hints.defaults.json file, or add them to your own spawn_hints.json file (in config).
+- Add `parent` inheritance support to external spawn hints so helper entries can reuse an existing parent entry instead of repeating the same conditions.
+- Add `summon` spawn reason support to external spawn hints, for mobs that are only spawned via item-based summoning. This makes spawn conditions clearer for the average user.
+- Make summon target lines interactive in the mob tracker: block targets now open JEI, and entity targets jump to the matching mob entry when available.
 
 
 ## [1.4.1] - 2026-07-12

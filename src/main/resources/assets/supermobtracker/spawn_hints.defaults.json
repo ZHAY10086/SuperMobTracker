@@ -2,6 +2,120 @@
   "version": 1,
   "entries": [
     {
+      "entityId": "minecraft:blaze",
+      "spawnReason": "structure",
+      "biomes": {"types": ["NETHER"]},
+      "dimensionId": -1,
+      "dimensionName": "dimension.the_nether",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "minecraft:cave_spider",
+      "spawnReason": "spawner",
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "minecraft:elder_guardian",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["minecraft:deep_ocean"]},
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "minecraft:ender_dragon",
+      "spawnReason": "worldgen",
+      "dimensionId": 1,
+      "dimensionName": "dimension.the_end"
+    },
+    {
+      "entityId": "minecraft:endermite",
+      "spawnReason": "event",
+      "summon": {"items": [{"id": "minecraft:ender_pearl"}]}
+    },
+    {
+      "entityId": "minecraft:evocation_illager",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["minecraft:roofed_forest", "minecraft:mutated_roofed_forest"]},
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "minecraft:guardian",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["minecraft:deep_ocean"]},
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "minecraft:shulker",
+      "spawnReason": "structure",
+      "dimensionId": 1,
+      "dimensionName": "dimension.the_end",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "minecraft:silverfish",
+      "spawnReason": "spawner",
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "minecraft:skeleton_horse",
+      "spawnReason": "event",
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "weather": ["thunder"],
+      "requiresSky": true
+    },
+    {
+      "entityId": "minecraft:snowman",
+      "spawnReason": "event",
+      "summon": {
+        "items": [{"id": "minecraft:pumpkin"}],
+        "onBlock": "minecraft:snow"
+      }
+    },
+    {
+      "entityId": "minecraft:villager",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["minecraft:plains", "minecraft:desert", "minecraft:savanna", "minecraft:taiga"]},
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "minecraft:villager_golem",
+      "spawnReason": "other",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "minecraft:vindication_illager",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["minecraft:roofed_forest", "minecraft:mutated_roofed_forest"]},
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "minecraft:wither",
+      "spawnReason": "event"
+    },
+    {
+      "entityId": "minecraft:wither_skeleton",
+      "spawnReason": "structure",
+      "biomes": {"types": ["NETHER"]},
+      "dimensionId": -1,
+      "dimensionName": "dimension.the_nether",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+
+    {
       "entityId": "iceandfire:gorgon",
       "spawnReason": "structure",
       "biomes": {"types": ["BEACH"]},
@@ -96,6 +210,765 @@
       "biomes": {"types": ["SWAMP"]},
       "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.away_from_world_spawn"]
     },
+
+    {
+      "entityId": "aether_legacy:mimic",
+      "spawnReason": "structure",
+      "dimensionId": 4,
+      "dimensionName": "dimension.aether",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aether_legacy:sentry",
+      "spawnReason": "structure",
+      "dimensionId": 4,
+      "dimensionName": "dimension.aether",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aether_legacy:valkyrie",
+      "spawnReason": "structure",
+      "dimensionId": 4,
+      "dimensionName": "dimension.aether",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aether_legacy:slider",
+      "spawnReason": "structure",
+      "dimensionId": 4,
+      "dimensionName": "dimension.aether",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aether_legacy:sun_spirit",
+      "spawnReason": "structure",
+      "dimensionId": 4,
+      "dimensionName": "dimension.aether",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aether_legacy:valkyrie_queen",
+      "spawnReason": "structure",
+      "dimensionId": 4,
+      "dimensionName": "dimension.aether",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+
+    {
+      "entityId": "twilightforest:naga",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["twilightforest:twilight_forest", "twilightforest:dense_twilight_forest", "twilightforest:mushroom_forest", "twilightforest:twilight_stream", "twilightforest:twilight_clearing", "twilightforest:oak_savannah", "twilightforest:firefly_forest", "twilightforest:thornlands", "twilightforest:spooky_forest"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "twilightforest:lich",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["twilightforest:twilight_forest", "twilightforest:dense_twilight_forest", "twilightforest:mushroom_forest", "twilightforest:twilight_stream", "twilightforest:twilight_clearing", "twilightforest:oak_savannah", "twilightforest:firefly_forest", "twilightforest:thornlands", "twilightforest:spooky_forest"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "twilightforest:hydra",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["twilightforest:fire_swamp"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "twilightforest:ur_ghast",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["twilightforest:dark_forest_center"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "twilightforest:knight_phantom",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["twilightforest:dark_forest"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "twilightforest:snow_queen",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["twilightforest:twilight_glacier"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "twilightforest:minoshroom",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["twilightforest:twilight_swamp"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "twilightforest:yeti_alpha",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["twilightforest:snowy_forest"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "twilightforest:redcap",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["twilightforest:twilight_forest", "twilightforest:dense_twilight_forest", "twilightforest:mushroom_forest", "twilightforest:twilight_stream", "twilightforest:twilight_clearing", "twilightforest:oak_savannah", "twilightforest:firefly_forest", "twilightforest:thornlands", "twilightforest:spooky_forest"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "twilightforest:redcap_sapper",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["twilightforest:twilight_forest", "twilightforest:dense_twilight_forest", "twilightforest:mushroom_forest", "twilightforest:twilight_stream", "twilightforest:twilight_clearing", "twilightforest:oak_savannah", "twilightforest:firefly_forest", "twilightforest:thornlands", "twilightforest:spooky_forest", "twilightforest:dark_forest"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "twilightforest:swarm_spider",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["twilightforest:twilight_forest", "twilightforest:dense_twilight_forest", "twilightforest:mushroom_forest", "twilightforest:twilight_stream", "twilightforest:twilight_clearing", "twilightforest:oak_savannah", "twilightforest:firefly_forest", "twilightforest:thornlands", "twilightforest:spooky_forest"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "twilightforest:hostile_wolf",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["twilightforest:twilight_forest", "twilightforest:dense_twilight_forest", "twilightforest:mushroom_forest", "twilightforest:twilight_stream", "twilightforest:twilight_clearing", "twilightforest:oak_savannah", "twilightforest:firefly_forest", "twilightforest:thornlands", "twilightforest:spooky_forest"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "twilightforest:hedge_spider",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["twilightforest:twilight_forest", "twilightforest:dense_twilight_forest", "twilightforest:mushroom_forest", "twilightforest:twilight_stream", "twilightforest:twilight_clearing", "twilightforest:oak_savannah", "twilightforest:firefly_forest", "twilightforest:thornlands", "twilightforest:spooky_forest"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "twilightforest:wraith",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["twilightforest:twilight_forest", "twilightforest:dense_twilight_forest", "twilightforest:mushroom_forest", "twilightforest:twilight_stream", "twilightforest:twilight_clearing", "twilightforest:oak_savannah", "twilightforest:firefly_forest", "twilightforest:thornlands", "twilightforest:spooky_forest"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "twilightforest:fire_beetle",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["twilightforest:twilight_forest", "twilightforest:dense_twilight_forest", "twilightforest:mushroom_forest", "twilightforest:twilight_stream", "twilightforest:twilight_clearing", "twilightforest:oak_savannah", "twilightforest:firefly_forest", "twilightforest:thornlands", "twilightforest:spooky_forest", "twilightforest:twilight_swamp"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "twilightforest:slime_beetle",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["twilightforest:twilight_forest", "twilightforest:dense_twilight_forest", "twilightforest:mushroom_forest", "twilightforest:twilight_stream", "twilightforest:twilight_clearing", "twilightforest:oak_savannah", "twilightforest:firefly_forest", "twilightforest:thornlands", "twilightforest:spooky_forest", "twilightforest:twilight_swamp", "twilightforest:dark_forest"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "twilightforest:pinch_beetle",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["twilightforest:twilight_forest", "twilightforest:dense_twilight_forest", "twilightforest:mushroom_forest", "twilightforest:twilight_stream", "twilightforest:twilight_clearing", "twilightforest:oak_savannah", "twilightforest:firefly_forest", "twilightforest:thornlands", "twilightforest:spooky_forest", "twilightforest:twilight_swamp", "twilightforest:dark_forest_center"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "twilightforest:death_tome",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["twilightforest:twilight_forest", "twilightforest:dense_twilight_forest", "twilightforest:mushroom_forest", "twilightforest:twilight_stream", "twilightforest:twilight_clearing", "twilightforest:oak_savannah", "twilightforest:firefly_forest", "twilightforest:thornlands", "twilightforest:spooky_forest"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "twilightforest:snow_guardian",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["twilightforest:twilight_glacier"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "twilightforest:stable_ice_core",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["twilightforest:twilight_glacier"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "twilightforest:unstable_ice_core",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["twilightforest:twilight_glacier"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "twilightforest:minotaur",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["twilightforest:twilight_swamp"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "twilightforest:maze_slime",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["twilightforest:twilight_swamp"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "twilightforest:tower_golem",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["twilightforest:dark_forest_center"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "twilightforest:mini_ghast",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["twilightforest:dark_forest_center"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "twilightforest:tower_broodling",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["twilightforest:dark_forest_center"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "twilightforest:tower_ghast",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["twilightforest:dark_forest_center"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "twilightforest:tower_termite",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["twilightforest:dark_forest_center"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "twilightforest:blockchain_goblin",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["twilightforest:dark_forest"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "twilightforest:goblin_knight_lower",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["twilightforest:dark_forest"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "twilightforest:goblin_knight_upper",
+      "parent": "twilightforest:goblin_knight_lower"
+    },
+    {
+      "entityId": "twilightforest:helmet_crab",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["twilightforest:dark_forest"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "twilightforest:giant_miner",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["twilightforest:twilight_highlands"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "twilightforest:armored_giant",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["twilightforest:twilight_highlands", "twilightforest:highlands_center"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "twilightforest:harbinger_cube",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["twilightforest:highlands_center"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "twilightforest:adherent",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["twilightforest:highlands_center"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "twilightforest:quest_ram",
+      "spawnReason": "worldgen",
+      "biomes": {"ids": ["twilightforest:enchanted_forest"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.chunk_generation"]
+    },
+    {
+      "entityId": "twilightforest:rising_zombie",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["twilightforest:spooky_forest"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "twilightforest:hydra_head",
+      "parent": "twilightforest:hydra"
+    },
+    {
+      "entityId": "twilightforest:ice_crystal",
+      "parent": "twilightforest:snow_queen"
+    },
+    {
+      "entityId": "twilightforest:kobold",
+      "spawnReason": "natural",
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "requiresSky": false
+    },
+    {
+      "entityId": "twilightforest:troll",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["twilightforest:twilight_highlands"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "requiresSky": false
+    },
+
+    {
+      "entityId": "thebetweenlands:pyrad",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:marsh_0", "thebetweenlands:marsh_1", "thebetweenlands:swamplands"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "thebetweenlands:fortress_boss",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["thebetweenlands:marsh_0", "thebetweenlands:marsh_1"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "thebetweenlands:sludge_menace",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["thebetweenlands:sludge_plains_clearing"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "thebetweenlands:chiromaw_matriarch",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["thebetweenlands:raised_isles"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "thebetweenlands:anadia",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:deep_waters", "thebetweenlands:patchy_islands", "thebetweenlands:raised_isles"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:angler",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:deep_waters", "thebetweenlands:marsh_0", "thebetweenlands:marsh_1", "thebetweenlands:patchy_islands", "thebetweenlands:raised_isles", "thebetweenlands:sludge_plains", "thebetweenlands:sludge_plains_clearing", "thebetweenlands:swamplands"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:blood_snail",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:patchy_islands", "thebetweenlands:swamplands"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:boulder_sprite",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:deep_waters", "thebetweenlands:marsh_0", "thebetweenlands:marsh_1", "thebetweenlands:patchy_islands", "thebetweenlands:raised_isles", "thebetweenlands:sludge_plains", "thebetweenlands:sludge_plains_clearing", "thebetweenlands:swamplands"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:bubbler_crab",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:swamplands"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:cave_fish",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:deep_waters", "thebetweenlands:marsh_0", "thebetweenlands:marsh_1", "thebetweenlands:patchy_islands", "thebetweenlands:raised_isles", "thebetweenlands:sludge_plains", "thebetweenlands:sludge_plains_clearing", "thebetweenlands:swamplands"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:chiromaw",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:deep_waters", "thebetweenlands:marsh_0", "thebetweenlands:marsh_1", "thebetweenlands:patchy_islands", "thebetweenlands:raised_isles", "thebetweenlands:sludge_plains", "thebetweenlands:sludge_plains_clearing", "thebetweenlands:swamplands"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:chiromaw_greebling_rider",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:deep_waters", "thebetweenlands:marsh_0", "thebetweenlands:marsh_1", "thebetweenlands:patchy_islands", "thebetweenlands:raised_isles", "thebetweenlands:sludge_plains", "thebetweenlands:sludge_plains_clearing", "thebetweenlands:swamplands"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:dragonfly",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:patchy_islands", "thebetweenlands:raised_isles"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:wild_emberling",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:patchy_islands"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:firefly",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:patchy_islands", "thebetweenlands:swamplands", "thebetweenlands:deep_waters", "thebetweenlands:coarse_islands", "thebetweenlands:raised_isles", "thebetweenlands:sludge_plains", "thebetweenlands:marsh_0", "thebetweenlands:marsh_1", "thebetweenlands:swamplands_clearing", "thebetweenlands:sludge_plains_clearing"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:freshwater_urchin",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:deep_waters"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:frog",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:patchy_islands", "thebetweenlands:raised_isles", "thebetweenlands:swamplands"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:gas_cloud",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:marsh_0", "thebetweenlands:marsh_1"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:gecko",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:patchy_islands", "thebetweenlands:raised_isles", "thebetweenlands:swamplands"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:toad",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:swamplands"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:greebling",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:patchy_islands", "thebetweenlands:raised_isles", "thebetweenlands:marsh_0", "thebetweenlands:marsh_1", "thebetweenlands:swamplands"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:greebling_coracle",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:deep_waters"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:jellyfish",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:deep_waters"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:jellyfish_cave",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:deep_waters"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:leech",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:patchy_islands", "thebetweenlands:sludge_plains", "thebetweenlands:sludge_plains_clearing", "thebetweenlands:swamplands"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:lurker",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:deep_waters", "thebetweenlands:patchy_islands", "thebetweenlands:raised_isles"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:mire_snail",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:patchy_islands", "thebetweenlands:swamplands"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:olm",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:deep_waters", "thebetweenlands:marsh_0", "thebetweenlands:marsh_1", "thebetweenlands:patchy_islands", "thebetweenlands:raised_isles", "thebetweenlands:sludge_plains", "thebetweenlands:sludge_plains_clearing", "thebetweenlands:swamplands"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:peat_mummy",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:patchy_islands", "thebetweenlands:swamplands", "thebetweenlands:deep_waters", "thebetweenlands:coarse_islands", "thebetweenlands:raised_isles", "thebetweenlands:sludge_plains", "thebetweenlands:marsh_0", "thebetweenlands:marsh_1", "thebetweenlands:swamplands_clearing", "thebetweenlands:sludge_plains_clearing"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:rock_snot",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:deep_waters"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:root_sprite",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:raised_isles"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:shambler",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:patchy_islands", "thebetweenlands:swamplands"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:silt_crab",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:patchy_islands"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:sludge",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:sludge_plains", "thebetweenlands:sludge_plains_clearing"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:smoll_sludge",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:sludge_plains", "thebetweenlands:sludge_plains_clearing"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:sporeling",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:deep_waters", "thebetweenlands:marsh_0", "thebetweenlands:marsh_1", "thebetweenlands:patchy_islands", "thebetweenlands:raised_isles", "thebetweenlands:swamplands"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:stalker",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:deep_waters", "thebetweenlands:marsh_0", "thebetweenlands:marsh_1", "thebetweenlands:patchy_islands", "thebetweenlands:raised_isles", "thebetweenlands:sludge_plains", "thebetweenlands:sludge_plains_clearing", "thebetweenlands:swamplands"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:swamp_hag",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:patchy_islands", "thebetweenlands:swamplands", "thebetweenlands:deep_waters", "thebetweenlands:coarse_islands", "thebetweenlands:raised_isles", "thebetweenlands:sludge_plains", "thebetweenlands:marsh_0", "thebetweenlands:marsh_1", "thebetweenlands:swamplands_clearing", "thebetweenlands:sludge_plains_clearing"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:swarm",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:deep_waters", "thebetweenlands:marsh_0", "thebetweenlands:marsh_1", "thebetweenlands:patchy_islands", "thebetweenlands:raised_isles", "thebetweenlands:sludge_plains", "thebetweenlands:sludge_plains_clearing", "thebetweenlands:swamplands"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:tar_beast",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:sludge_plains", "thebetweenlands:sludge_plains_clearing", "thebetweenlands:swamplands"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:wight",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:deep_waters", "thebetweenlands:marsh_0", "thebetweenlands:marsh_1", "thebetweenlands:patchy_islands", "thebetweenlands:raised_isles", "thebetweenlands:sludge_plains", "thebetweenlands:sludge_plains_clearing", "thebetweenlands:swamplands"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:ash_sprite",
+      "spawnReason": "structure",
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "thebetweenlands:barrishee",
+      "spawnReason": "structure",
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "thebetweenlands:crypt_crawler",
+      "spawnReason": "structure",
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },    {
+      "entityId": "thebetweenlands:dark_druid",
+      "spawnReason": "spawner",
+      "biomes": {"types": ["SWAMP"]},
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "thebetweenlands:dreadful_mummy",
+      "spawnReason": "event",
+      "biomes": {"ids": ["thebetweenlands:sludge_plains", "thebetweenlands:marsh_0", "thebetweenlands:marsh_1"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands",
+      "summon": {"items": [{"id": "thebetweenlands:mummy_bait"}]}
+    },
+    {
+      "entityId": "thebetweenlands:emberling",
+      "spawnReason": "event",
+      "summon": {
+        "items": [{"id": "thebetweenlands:items_misc", "metadata": 45}],
+        "onEntity": "thebetweenlands:wild_emberling"
+      }
+    },
+    {
+      "entityId": "thebetweenlands:emberling_shaman",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["thebetweenlands:sludge_plains_clearing"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "thebetweenlands:large_sludge_worm",
+      "spawnReason": "event",
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:mire_snail_egg",
+      "spawnReason": "event",
+      "summon": {"items": [{"id": "thebetweenlands:mire_snail_egg"}]}
+    },
+    {
+      "entityId": "thebetweenlands:small_sludge_worm",
+      "spawnReason": "event",
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:spirit_tree_face_large",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["thebetweenlands:swamplands_clearing"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "thebetweenlands:spirit_tree_face_small",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["thebetweenlands:swamplands_clearing"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "thebetweenlands:tiny_sludge_worm",
+      "spawnReason": "event",
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands"
+    },
+    {
+      "entityId": "thebetweenlands:wall_lamprey",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["thebetweenlands:sludge_plains_clearing"]},
+      "dimensionId": 20,
+      "dimensionName": "dimension.thebetweenlands",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+
     {
       "entityId": "erebus:erebus.antlion_boss",
       "spawnReason": "structure",
@@ -437,591 +1310,2315 @@
       "dimensionName": "dimension.erebus"
     },
     {
-      "entityId": "thebetweenlands:pyrad",
-      "spawnReason": "structure",
-      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:marsh_0", "thebetweenlands:marsh_1", "thebetweenlands:swamplands"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands",
-      "hints": ["gui.mobtracker.hint.structure"]
+      "entityId": "erebus:erebus.bed_bug",
+      "spawnReason": "event",
+      "dimensionId": 66,
+      "dimensionName": "dimension.erebus",
+      "summon": {"items": [{"id": "minecraft:bed"}]}
     },
     {
-      "entityId": "thebetweenlands:fortress_boss",
-      "spawnReason": "structure",
-      "biomes": {"ids": ["thebetweenlands:marsh_0", "thebetweenlands:marsh_1"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands",
-      "hints": ["gui.mobtracker.hint.structure"]
+      "entityId": "erebus:erebus.bot_fly_larva",
+      "parent": "erebus:erebus.bot_fly",
+      "spawnReason": "other"
     },
     {
-      "entityId": "thebetweenlands:sludge_menace",
-      "spawnReason": "structure",
-      "biomes": {"ids": ["thebetweenlands:sludge_plains_clearing"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands",
-      "hints": ["gui.mobtracker.hint.structure"]
-    },
-    {
-      "entityId": "thebetweenlands:chiromaw_matriarch",
-      "spawnReason": "structure",
-      "biomes": {"ids": ["thebetweenlands:raised_isles"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands",
-      "hints": ["gui.mobtracker.hint.structure"]
-    },
-    {
-      "entityId": "thebetweenlands:anadia",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:deep_waters", "thebetweenlands:patchy_islands", "thebetweenlands:raised_isles"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:angler",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:deep_waters", "thebetweenlands:marsh_0", "thebetweenlands:marsh_1", "thebetweenlands:patchy_islands", "thebetweenlands:raised_isles", "thebetweenlands:sludge_plains", "thebetweenlands:sludge_plains_clearing", "thebetweenlands:swamplands"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:blood_snail",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:patchy_islands", "thebetweenlands:swamplands"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:boulder_sprite",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:deep_waters", "thebetweenlands:marsh_0", "thebetweenlands:marsh_1", "thebetweenlands:patchy_islands", "thebetweenlands:raised_isles", "thebetweenlands:sludge_plains", "thebetweenlands:sludge_plains_clearing", "thebetweenlands:swamplands"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:bubbler_crab",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:swamplands"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:cave_fish",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:deep_waters", "thebetweenlands:marsh_0", "thebetweenlands:marsh_1", "thebetweenlands:patchy_islands", "thebetweenlands:raised_isles", "thebetweenlands:sludge_plains", "thebetweenlands:sludge_plains_clearing", "thebetweenlands:swamplands"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:chiromaw",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:deep_waters", "thebetweenlands:marsh_0", "thebetweenlands:marsh_1", "thebetweenlands:patchy_islands", "thebetweenlands:raised_isles", "thebetweenlands:sludge_plains", "thebetweenlands:sludge_plains_clearing", "thebetweenlands:swamplands"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:chiromaw_greebling_rider",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:deep_waters", "thebetweenlands:marsh_0", "thebetweenlands:marsh_1", "thebetweenlands:patchy_islands", "thebetweenlands:raised_isles", "thebetweenlands:sludge_plains", "thebetweenlands:sludge_plains_clearing", "thebetweenlands:swamplands"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:dragonfly",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:patchy_islands", "thebetweenlands:raised_isles"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:wild_emberling",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:patchy_islands"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:firefly",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:patchy_islands", "thebetweenlands:swamplands", "thebetweenlands:deep_waters", "thebetweenlands:coarse_islands", "thebetweenlands:raised_isles", "thebetweenlands:sludge_plains", "thebetweenlands:marsh_0", "thebetweenlands:marsh_1", "thebetweenlands:swamplands_clearing", "thebetweenlands:sludge_plains_clearing"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:freshwater_urchin",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:deep_waters"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:frog",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:patchy_islands", "thebetweenlands:raised_isles", "thebetweenlands:swamplands"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:gas_cloud",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:marsh_0", "thebetweenlands:marsh_1"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:gecko",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:patchy_islands", "thebetweenlands:raised_isles", "thebetweenlands:swamplands"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:toad",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:swamplands"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:greebling",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:patchy_islands", "thebetweenlands:raised_isles", "thebetweenlands:marsh_0", "thebetweenlands:marsh_1", "thebetweenlands:swamplands"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:greebling_coracle",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:deep_waters"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:jellyfish",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:deep_waters"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:jellyfish_cave",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:deep_waters"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:leech",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:patchy_islands", "thebetweenlands:sludge_plains", "thebetweenlands:sludge_plains_clearing", "thebetweenlands:swamplands"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:lurker",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:deep_waters", "thebetweenlands:patchy_islands", "thebetweenlands:raised_isles"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:mire_snail",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:patchy_islands", "thebetweenlands:swamplands"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:olm",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:deep_waters", "thebetweenlands:marsh_0", "thebetweenlands:marsh_1", "thebetweenlands:patchy_islands", "thebetweenlands:raised_isles", "thebetweenlands:sludge_plains", "thebetweenlands:sludge_plains_clearing", "thebetweenlands:swamplands"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:peat_mummy",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:patchy_islands", "thebetweenlands:swamplands", "thebetweenlands:deep_waters", "thebetweenlands:coarse_islands", "thebetweenlands:raised_isles", "thebetweenlands:sludge_plains", "thebetweenlands:marsh_0", "thebetweenlands:marsh_1", "thebetweenlands:swamplands_clearing", "thebetweenlands:sludge_plains_clearing"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:rock_snot",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:deep_waters"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:root_sprite",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:raised_isles"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:shambler",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:patchy_islands", "thebetweenlands:swamplands"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:silt_crab",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:patchy_islands"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:sludge",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:sludge_plains", "thebetweenlands:sludge_plains_clearing"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:smoll_sludge",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:sludge_plains", "thebetweenlands:sludge_plains_clearing"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:sporeling",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:deep_waters", "thebetweenlands:marsh_0", "thebetweenlands:marsh_1", "thebetweenlands:patchy_islands", "thebetweenlands:raised_isles", "thebetweenlands:swamplands"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:stalker",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:deep_waters", "thebetweenlands:marsh_0", "thebetweenlands:marsh_1", "thebetweenlands:patchy_islands", "thebetweenlands:raised_isles", "thebetweenlands:sludge_plains", "thebetweenlands:sludge_plains_clearing", "thebetweenlands:swamplands"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:swamp_hag",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:patchy_islands", "thebetweenlands:swamplands", "thebetweenlands:deep_waters", "thebetweenlands:coarse_islands", "thebetweenlands:raised_isles", "thebetweenlands:sludge_plains", "thebetweenlands:marsh_0", "thebetweenlands:marsh_1", "thebetweenlands:swamplands_clearing", "thebetweenlands:sludge_plains_clearing"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:swarm",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:deep_waters", "thebetweenlands:marsh_0", "thebetweenlands:marsh_1", "thebetweenlands:patchy_islands", "thebetweenlands:raised_isles", "thebetweenlands:sludge_plains", "thebetweenlands:sludge_plains_clearing", "thebetweenlands:swamplands"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:tar_beast",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:sludge_plains", "thebetweenlands:sludge_plains_clearing", "thebetweenlands:swamplands"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "thebetweenlands:wight",
-      "spawnReason": "natural",
-      "biomes": {"ids": ["thebetweenlands:coarse_islands", "thebetweenlands:deep_waters", "thebetweenlands:marsh_0", "thebetweenlands:marsh_1", "thebetweenlands:patchy_islands", "thebetweenlands:raised_isles", "thebetweenlands:sludge_plains", "thebetweenlands:sludge_plains_clearing", "thebetweenlands:swamplands"]},
-      "dimensionId": 20,
-      "dimensionName": "dimension.thebetweenlands"
-    },
-    {
-      "entityId": "twilightforest:naga",
-      "spawnReason": "structure",
-      "biomes": {"ids": ["twilightforest:twilight_forest", "twilightforest:dense_twilight_forest", "twilightforest:mushroom_forest", "twilightforest:twilight_stream", "twilightforest:twilight_clearing", "twilightforest:oak_savannah", "twilightforest:firefly_forest", "twilightforest:thornlands", "twilightforest:spooky_forest"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
-      "hints": ["gui.mobtracker.hint.structure"]
-    },
-    {
-      "entityId": "twilightforest:lich",
-      "spawnReason": "structure",
-      "biomes": {"ids": ["twilightforest:twilight_forest", "twilightforest:dense_twilight_forest", "twilightforest:mushroom_forest", "twilightforest:twilight_stream", "twilightforest:twilight_clearing", "twilightforest:oak_savannah", "twilightforest:firefly_forest", "twilightforest:thornlands", "twilightforest:spooky_forest"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
-      "hints": ["gui.mobtracker.hint.structure"]
-    },
-    {
-      "entityId": "twilightforest:hydra",
-      "spawnReason": "structure",
-      "biomes": {"ids": ["twilightforest:fire_swamp"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
-      "hints": ["gui.mobtracker.hint.structure"]
-    },
-    {
-      "entityId": "twilightforest:ur_ghast",
-      "spawnReason": "structure",
-      "biomes": {"ids": ["twilightforest:dark_forest_center"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
-      "hints": ["gui.mobtracker.hint.structure"]
-    },
-    {
-      "entityId": "twilightforest:knight_phantom",
-      "spawnReason": "structure",
-      "biomes": {"ids": ["twilightforest:dark_forest"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
-      "hints": ["gui.mobtracker.hint.structure"]
-    },
-    {
-      "entityId": "twilightforest:snow_queen",
-      "spawnReason": "structure",
-      "biomes": {"ids": ["twilightforest:twilight_glacier"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
-      "hints": ["gui.mobtracker.hint.structure"]
-    },
-    {
-      "entityId": "twilightforest:minoshroom",
-      "spawnReason": "structure",
-      "biomes": {"ids": ["twilightforest:twilight_swamp"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
-      "hints": ["gui.mobtracker.hint.structure"]
-    },
-    {
-      "entityId": "twilightforest:yeti_alpha",
-      "spawnReason": "structure",
-      "biomes": {"ids": ["twilightforest:snowy_forest"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
-      "hints": ["gui.mobtracker.hint.structure"]
-    },
-    {
-      "entityId": "twilightforest:redcap",
-      "spawnReason": "structure",
-      "biomes": {"ids": ["twilightforest:twilight_forest", "twilightforest:dense_twilight_forest", "twilightforest:mushroom_forest", "twilightforest:twilight_stream", "twilightforest:twilight_clearing", "twilightforest:oak_savannah", "twilightforest:firefly_forest", "twilightforest:thornlands", "twilightforest:spooky_forest"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
-      "hints": ["gui.mobtracker.hint.structure"]
-    },
-    {
-      "entityId": "twilightforest:redcap_sapper",
-      "spawnReason": "structure",
-      "biomes": {"ids": ["twilightforest:twilight_forest", "twilightforest:dense_twilight_forest", "twilightforest:mushroom_forest", "twilightforest:twilight_stream", "twilightforest:twilight_clearing", "twilightforest:oak_savannah", "twilightforest:firefly_forest", "twilightforest:thornlands", "twilightforest:spooky_forest", "twilightforest:dark_forest"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
-      "hints": ["gui.mobtracker.hint.structure"]
-    },
-    {
-      "entityId": "twilightforest:swarm_spider",
-      "spawnReason": "structure",
-      "biomes": {"ids": ["twilightforest:twilight_forest", "twilightforest:dense_twilight_forest", "twilightforest:mushroom_forest", "twilightforest:twilight_stream", "twilightforest:twilight_clearing", "twilightforest:oak_savannah", "twilightforest:firefly_forest", "twilightforest:thornlands", "twilightforest:spooky_forest"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
-      "hints": ["gui.mobtracker.hint.structure"]
-    },
-    {
-      "entityId": "twilightforest:hostile_wolf",
+      "entityId": "erebus:erebus.locust",
       "spawnReason": "spawner",
-      "biomes": {"ids": ["twilightforest:twilight_forest", "twilightforest:dense_twilight_forest", "twilightforest:mushroom_forest", "twilightforest:twilight_stream", "twilightforest:twilight_clearing", "twilightforest:oak_savannah", "twilightforest:firefly_forest", "twilightforest:thornlands", "twilightforest:spooky_forest"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
-      "hints": ["gui.mobtracker.hint.spawner_only"]
+      "biomes": {"ids": ["erebus:subterranean_savannah"]},
+      "dimensionId": 66,
+      "dimensionName": "dimension.erebus",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
     },
     {
-      "entityId": "twilightforest:hedge_spider",
+      "entityId": "erebus:erebus.magma_crawler",
       "spawnReason": "spawner",
-      "biomes": {"ids": ["twilightforest:twilight_forest", "twilightforest:dense_twilight_forest", "twilightforest:mushroom_forest", "twilightforest:twilight_stream", "twilightforest:twilight_clearing", "twilightforest:oak_savannah", "twilightforest:firefly_forest", "twilightforest:thornlands", "twilightforest:spooky_forest"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
-      "hints": ["gui.mobtracker.hint.spawner_only"]
+      "biomes": {"ids": ["erebus:volcanic_desert"]},
+      "dimensionId": 66,
+      "dimensionName": "dimension.erebus",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
     },
     {
-      "entityId": "twilightforest:wraith",
+      "entityId": "erebus:erebus.money_spider",
+      "spawnReason": "other",
+      "biomes": {"ids": ["erebus:petrified_forest", "erebus:subterranean_savannah", "erebus:ulterior_outback", "erebus:underground_jungle", "erebus:volcanic_desert"]},
+      "dimensionId": 66,
+      "dimensionName": "dimension.erebus"
+    },
+    {
+      "entityId": "erebus:erebus.solifuge_small",
+      "parent": "erebus:erebus.solifuge",
+      "spawnReason": "other"
+    },
+    {
+      "entityId": "erebus:erebus.umber_golem",
+      "spawnReason": "event",
+      "summon": {
+        "items": [{"id": "erebus:wand_of_animation"}],
+        "onBlock": "erebus:umber_golem_statue"
+      }
+    },
+
+    {
+      "entityId": "iceandfire:dread_beast",
       "spawnReason": "structure",
-      "biomes": {"ids": ["twilightforest:twilight_forest", "twilightforest:dense_twilight_forest", "twilightforest:mushroom_forest", "twilightforest:twilight_stream", "twilightforest:twilight_clearing", "twilightforest:oak_savannah", "twilightforest:firefly_forest", "twilightforest:thornlands", "twilightforest:spooky_forest"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
+      "biomes": {"allTypes": ["COLD", "SNOWY"]},
       "hints": ["gui.mobtracker.hint.structure"]
     },
     {
-      "entityId": "twilightforest:fire_beetle",
+      "entityId": "iceandfire:dread_ghoul",
       "spawnReason": "structure",
-      "biomes": {"ids": ["twilightforest:twilight_forest", "twilightforest:dense_twilight_forest", "twilightforest:mushroom_forest", "twilightforest:twilight_stream", "twilightforest:twilight_clearing", "twilightforest:oak_savannah", "twilightforest:firefly_forest", "twilightforest:thornlands", "twilightforest:spooky_forest", "twilightforest:twilight_swamp"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
+      "biomes": {"allTypes": ["COLD", "SNOWY"]},
       "hints": ["gui.mobtracker.hint.structure"]
     },
     {
-      "entityId": "twilightforest:slime_beetle",
+      "entityId": "iceandfire:dread_knight",
       "spawnReason": "structure",
-      "biomes": {"ids": ["twilightforest:twilight_forest", "twilightforest:dense_twilight_forest", "twilightforest:mushroom_forest", "twilightforest:twilight_stream", "twilightforest:twilight_clearing", "twilightforest:oak_savannah", "twilightforest:firefly_forest", "twilightforest:thornlands", "twilightforest:spooky_forest", "twilightforest:twilight_swamp", "twilightforest:dark_forest"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
+      "biomes": {"allTypes": ["COLD", "SNOWY"]},
       "hints": ["gui.mobtracker.hint.structure"]
     },
     {
-      "entityId": "twilightforest:pinch_beetle",
+      "entityId": "iceandfire:dread_scuttler",
       "spawnReason": "structure",
-      "biomes": {"ids": ["twilightforest:twilight_forest", "twilightforest:dense_twilight_forest", "twilightforest:mushroom_forest", "twilightforest:twilight_stream", "twilightforest:twilight_clearing", "twilightforest:oak_savannah", "twilightforest:firefly_forest", "twilightforest:thornlands", "twilightforest:spooky_forest", "twilightforest:twilight_swamp", "twilightforest:dark_forest_center"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
+      "biomes": {"allTypes": ["COLD", "SNOWY"]},
       "hints": ["gui.mobtracker.hint.structure"]
     },
     {
-      "entityId": "twilightforest:death_tome",
+      "entityId": "iceandfire:dread_thrall",
       "spawnReason": "structure",
-      "biomes": {"ids": ["twilightforest:twilight_forest", "twilightforest:dense_twilight_forest", "twilightforest:mushroom_forest", "twilightforest:twilight_stream", "twilightforest:twilight_clearing", "twilightforest:oak_savannah", "twilightforest:firefly_forest", "twilightforest:thornlands", "twilightforest:spooky_forest"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
+      "biomes": {"allTypes": ["COLD", "SNOWY"]},
       "hints": ["gui.mobtracker.hint.structure"]
     },
     {
-      "entityId": "twilightforest:snow_guardian",
+      "entityId": "iceandfire:myrmex_royal",
       "spawnReason": "structure",
-      "biomes": {"ids": ["twilightforest:twilight_glacier"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
       "hints": ["gui.mobtracker.hint.structure"]
     },
     {
-      "entityId": "twilightforest:stable_ice_core",
-      "spawnReason": "structure",
-      "biomes": {"ids": ["twilightforest:twilight_glacier"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
-      "hints": ["gui.mobtracker.hint.structure"]
+      "entityId": "iceandfire:myrmex_swarmer",
+      "spawnReason": "event",
+      "summon": {"items": [{"id": "iceandfire:myrmex_desert_swarm"}, {"id": "iceandfire:myrmex_jungle_swarm"}]}
     },
     {
-      "entityId": "twilightforest:unstable_ice_core",
-      "spawnReason": "structure",
-      "biomes": {"ids": ["twilightforest:twilight_glacier"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
-      "hints": ["gui.mobtracker.hint.structure"]
-    },
-    {
-      "entityId": "twilightforest:minotaur",
-      "spawnReason": "structure",
-      "biomes": {"ids": ["twilightforest:twilight_swamp"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
-      "hints": ["gui.mobtracker.hint.structure"]
-    },
-    {
-      "entityId": "twilightforest:maze_slime",
-      "spawnReason": "structure",
-      "biomes": {"ids": ["twilightforest:twilight_swamp"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
-      "hints": ["gui.mobtracker.hint.structure"]
-    },
-    {
-      "entityId": "twilightforest:tower_golem",
-      "spawnReason": "structure",
-      "biomes": {"ids": ["twilightforest:dark_forest_center"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
-      "hints": ["gui.mobtracker.hint.structure"]
-    },
-    {
-      "entityId": "twilightforest:mini_ghast",
-      "spawnReason": "structure",
-      "biomes": {"ids": ["twilightforest:dark_forest_center"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
-      "hints": ["gui.mobtracker.hint.structure"]
-    },
-    {
-      "entityId": "twilightforest:tower_broodling",
-      "spawnReason": "structure",
-      "biomes": {"ids": ["twilightforest:dark_forest_center"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
-      "hints": ["gui.mobtracker.hint.structure"]
-    },
-    {
-      "entityId": "twilightforest:tower_ghast",
-      "spawnReason": "structure",
-      "biomes": {"ids": ["twilightforest:dark_forest_center"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
-      "hints": ["gui.mobtracker.hint.structure"]
-    },
-    {
-      "entityId": "twilightforest:tower_termite",
-      "spawnReason": "structure",
-      "biomes": {"ids": ["twilightforest:dark_forest_center"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
-      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
-    },
-    {
-      "entityId": "twilightforest:blockchain_goblin",
-      "spawnReason": "structure",
-      "biomes": {"ids": ["twilightforest:dark_forest"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
-      "hints": ["gui.mobtracker.hint.structure"]
-    },
-    {
-      "entityId": "twilightforest:goblin_knight_lower",
-      "spawnReason": "structure",
-      "biomes": {"ids": ["twilightforest:dark_forest"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
-      "hints": ["gui.mobtracker.hint.structure"]
-    },
-    {
-      "entityId": "twilightforest:helmet_crab",
-      "spawnReason": "structure",
-      "biomes": {"ids": ["twilightforest:dark_forest"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
-      "hints": ["gui.mobtracker.hint.structure"]
-    },
-    {
-      "entityId": "twilightforest:giant_miner",
-      "spawnReason": "structure",
-      "biomes": {"ids": ["twilightforest:twilight_highlands"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
-      "hints": ["gui.mobtracker.hint.structure"]
-    },
-    {
-      "entityId": "twilightforest:armored_giant",
-      "spawnReason": "structure",
-      "biomes": {"ids": ["twilightforest:twilight_highlands", "twilightforest:highlands_center"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
-      "hints": ["gui.mobtracker.hint.structure"]
-    },
-    {
-      "entityId": "twilightforest:harbinger_cube",
-      "spawnReason": "structure",
-      "biomes": {"ids": ["twilightforest:highlands_center"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
-      "hints": ["gui.mobtracker.hint.structure"]
-    },
-    {
-      "entityId": "twilightforest:adherent",
-      "spawnReason": "structure",
-      "biomes": {"ids": ["twilightforest:highlands_center"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
-      "hints": ["gui.mobtracker.hint.structure"]
-    },
-    {
-      "entityId": "twilightforest:quest_ram",
+      "entityId": "mod_lavacow:piranha",
       "spawnReason": "worldgen",
-      "biomes": {"ids": ["twilightforest:enchanted_forest"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
+      "biomes": {"types": ["WET"]},
+      "groundBlocks": ["water"],
       "hints": ["gui.mobtracker.hint.chunk_generation"]
     },
     {
-      "entityId": "twilightforest:rising_zombie",
+      "entityId": "mod_lavacow:zombiepiranha",
+      "spawnReason": "worldgen",
+      "biomes": {"types": ["WET"]},
+      "groundBlocks": ["water"],
+      "hints": ["gui.mobtracker.hint.chunk_generation"]
+    },
+    {
+      "entityId": "mod_lavacow:skeletonking",
+      "spawnReason": "event",
+      "summon": {
+        "items": [{"id": "mod_lavacow:kings_crown", "metadata": 1}],
+        "onBlock": "minecraft:skull"
+      }
+    },
+    {
+      "entityId": "mod_lavacow:lavacow",
+      "spawnReason": "event",
+      "summon": {
+        "items": [{"id": "mod_lavacow:potion_of_mooten_lava"}],
+        "onEntity": "minecraft:cow"
+      }
+    },
+    {
+      "entityId": "mod_lavacow:mimic",
+      "spawnReason": "structure",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+
+    {
+      "entityId": "bewitchment:baphomet",
+      "spawnReason": "event",
+      "hints": ["gui.mobtracker.hint.ritual"]
+    },
+    {
+      "entityId": "bewitchment:demon",
+      "spawnReason": "event",
+      "hints": ["gui.mobtracker.hint.ritual"]
+    },
+    {
+      "entityId": "bewitchment:demoness",
+      "spawnReason": "event",
+      "hints": ["gui.mobtracker.hint.ritual"]
+    },
+    {
+      "entityId": "bewitchment:imp",
+      "spawnReason": "event",
+      "hints": ["gui.mobtracker.hint.ritual"]
+    },
+    {
+      "entityId": "bewitchment:leonard",
+      "spawnReason": "event",
+      "hints": ["gui.mobtracker.hint.ritual"]
+    },
+
+    {
+      "entityId": "divinerpg:the_watcher",
+      "spawnReason": "event",
+      "biomes": {"types": ["NETHER"]},
+      "dimensionId": -1,
+      "dimensionName": "dimension.the_nether",
+      "summon": {"items": [{"id": "divinerpg:call_of_the_watcher"}]}
+    },
+    {
+      "entityId": "divinerpg:king_of_scorchers",
+      "spawnReason": "event",
+      "biomes": {"types": ["NETHER"]},
+      "dimensionId": -1,
+      "dimensionName": "dimension.the_nether",
+      "summon": {"items": [{"id": "divinerpg:infernal_flame"}]}
+    },
+    {
+      "entityId": "divinerpg:ancient_entity",
+      "spawnReason": "event",
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "summon": {"items": [{"id": "divinerpg:mysterious_clock"}]}
+    },
+    {
+      "entityId": "divinerpg:livestock_merchant",
+      "spawnReason": "structure",
+      "biomes": {"types": ["PLAINS", "SAVANNA"]},
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "divinerpg:shark",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["minecraft:ocean", "minecraft:deep_ocean"]},
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "groundBlocks": ["water"]
+    },
+    {
+      "entityId": "divinerpg:whale",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["minecraft:ocean", "minecraft:deep_ocean"]},
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "groundBlocks": ["water"]
+    },
+    {
+      "entityId": "divinerpg:liopleurodon",
+      "spawnReason": "natural",
+      "biomes": {"ids": ["minecraft:ocean", "minecraft:deep_ocean"]},
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "groundBlocks": ["water"]
+    },
+    {
+      "entityId": "divinerpg:ayeraco_blue",
+      "spawnReason": "event",
+      "dimensionId": 1,
+      "dimensionName": "dimension.the_end",
+      "summon": {"items": [{"id": "divinerpg:horde_horn"}]}
+    },
+    {
+      "entityId": "divinerpg:ayeraco_green",
+      "parent": "divinerpg:ayeraco_blue"
+    },
+    {
+      "entityId": "divinerpg:ayeraco_purple",
+      "parent": "divinerpg:ayeraco_blue"
+    },
+    {
+      "entityId": "divinerpg:ayeraco_red",
+      "parent": "divinerpg:ayeraco_blue"
+    },
+    {
+      "entityId": "divinerpg:ayeraco_yellow",
+      "parent": "divinerpg:ayeraco_blue"
+    },
+    {
+      "entityId": "divinerpg:karot",
+      "spawnReason": "event",
+      "dimensionId": 424,
+      "dimensionName": "dimension.divinerpg.mortum",
+      "summon": {"items": [{"id": "divinerpg:karot_crystal"}]}
+    },
+    {
+      "entityId": "divinerpg:reyvor",
+      "spawnReason": "event",
+      "dimensionId": 424,
+      "dimensionName": "dimension.divinerpg.mortum",
+      "summon": {"items": [{"id": "divinerpg:reyvor_crystal"}, {"id": "divinerpg:densos_crystal"}]}
+    },
+    {
+      "entityId": "divinerpg:densos",
+      "spawnReason": "event",
+      "dimensionId": 424,
+      "dimensionName": "dimension.divinerpg.mortum",
+      "summon": {"items": [{"id": "divinerpg:reyvor_crystal"}, {"id": "divinerpg:densos_crystal"}]}
+    },
+    {
+      "entityId": "divinerpg:soul_fiend",
+      "spawnReason": "event",
+      "dimensionId": 424,
+      "dimensionName": "dimension.divinerpg.mortum",
+      "summon": {"items": [{"id": "divinerpg:soul_fiend_crystal"}]}
+    },
+    {
+      "entityId": "divinerpg:twilight_demon",
+      "spawnReason": "event",
+      "dimensionId": 424,
+      "dimensionName": "dimension.divinerpg.mortum",
+      "summon": {"items": [{"id": "divinerpg:twilight_demon_crystal"}]}
+    },
+    {
+      "entityId": "divinerpg:vamacheron",
+      "spawnReason": "event",
+      "dimensionId": 424,
+      "dimensionName": "dimension.divinerpg.mortum",
+      "summon": {"items": [{"id": "divinerpg:vamacheron_crystal"}]}
+    },
+    {
+      "entityId": "divinerpg:parasecta",
+      "spawnReason": "event",
+      "dimensionId": 426,
+      "dimensionName": "dimension.divinerpg.arcana",
+      "summon": {
+        "items": [{"id": "divinerpg:wizards_book"}],
+        "onBlock": "divinerpg:parasecta_altar"
+      }
+    },
+    {
+      "entityId": "divinerpg:dramix",
+      "spawnReason": "event",
+      "dimensionId": 426,
+      "dimensionName": "dimension.divinerpg.arcana",
+      "summon": {
+        "items": [{"id": "divinerpg:wizards_book"}],
+        "onBlock": "divinerpg:dramix_altar"
+      }
+    },
+    {
+      "entityId": "divinerpg:wraith",
+      "spawnReason": "event",
+      "dimensionId": 426,
+      "dimensionName": "dimension.divinerpg.arcana",
+      "summon": {"items": [{"id": "divinerpg:ghostbane"}]}
+    },
+    {
+      "entityId": "divinerpg:hive_queen",
+      "spawnReason": "structure",
+      "dimensionId": 427,
+      "dimensionName": "dimension.divinerpg.vethea",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "divinerpg:captain_merik",
+      "spawnReason": "structure",
+      "dimensionId": 426,
+      "dimensionName": "dimension.divinerpg.arcana",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "divinerpg:datticon",
+      "spawnReason": "structure",
+      "dimensionId": 426,
+      "dimensionName": "dimension.divinerpg.arcana",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "divinerpg:kazari",
+      "spawnReason": "structure",
+      "dimensionId": 426,
+      "dimensionName": "dimension.divinerpg.arcana",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "divinerpg:leorna",
+      "spawnReason": "structure",
+      "dimensionId": 426,
+      "dimensionName": "dimension.divinerpg.arcana",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "divinerpg:lord_vatticus",
+      "spawnReason": "structure",
+      "dimensionId": 426,
+      "dimensionName": "dimension.divinerpg.arcana",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "divinerpg:war_general",
+      "spawnReason": "structure",
+      "dimensionId": 426,
+      "dimensionName": "dimension.divinerpg.arcana",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "divinerpg:zelus",
+      "spawnReason": "structure",
+      "dimensionId": 426,
+      "dimensionName": "dimension.divinerpg.arcana",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "divinerpg:the_hunger",
+      "spawnReason": "structure",
+      "dimensionId": 427,
+      "dimensionName": "dimension.divinerpg.vethea",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "divinerpg:workshop_merchant",
+      "spawnReason": "structure",
+      "dimensionId": 425,
+      "dimensionName": "dimension.divinerpg.iceika",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "divinerpg:workshop_tinkerer",
+      "spawnReason": "structure",
+      "dimensionId": 425,
+      "dimensionName": "dimension.divinerpg.iceika",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "divinerpg:crypt_keeper",
+      "spawnReason": "structure",
+      "dimensionId": 427,
+      "dimensionName": "dimension.divinerpg.vethea",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "divinerpg:temple_guardian",
+      "spawnReason": "structure",
+      "dimensionId": 427,
+      "dimensionName": "dimension.divinerpg.vethea",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "divinerpg:wreck",
+      "spawnReason": "event",
+      "dimensionId": 427,
+      "dimensionName": "dimension.divinerpg.vethea",
+      "summon": {
+        "items": [{"id": "divinerpg:dream_flint"}],
+        "onBlock": "divinerpg:wreck_altar"
+      }
+    },
+    {
+      "entityId": "divinerpg:raglok",
+      "spawnReason": "event",
+      "dimensionId": 427,
+      "dimensionName": "dimension.divinerpg.vethea",
+      "summon": {
+        "items": [{"id": "divinerpg:dream_flint"}],
+        "onBlock": "divinerpg:raglok_altar"
+      }
+    },
+    {
+      "entityId": "divinerpg:karos",
+      "spawnReason": "event",
+      "dimensionId": 427,
+      "dimensionName": "dimension.divinerpg.vethea",
+      "summon": {
+        "items": [{"id": "divinerpg:dream_flint"}],
+        "onBlock": "divinerpg:karos_altar"
+      }
+    },
+    {
+      "entityId": "divinerpg:quadro",
+      "spawnReason": "event",
+      "dimensionId": 427,
+      "dimensionName": "dimension.divinerpg.vethea",
+      "summon": {
+        "items": [{"id": "divinerpg:dream_flint"}],
+        "onBlock": "divinerpg:quadrotic_altar"
+      }
+    },
+    {
+      "entityId": "divinerpg:lady_luna",
+      "spawnReason": "event",
+      "dimensionId": 427,
+      "dimensionName": "dimension.divinerpg.vethea",
+      "summon": {
+        "items": [{"id": "divinerpg:moon_clock"}],
+        "onBlock": "divinerpg:lunic_altar"
+      }
+    },
+
+    {
+      "entityId": "aoa3:abyssal_lottoman",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:abyss"]},
+      "dimensionId": 800,
+      "dimensionName": "dimension.aoa.abyss",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:alluricorn",
+      "spawnReason": "event",
+      "summon": {"items": [{"id": "aoa3:alluricorn_slab"}]}
+    },
+    {
+      "entityId": "aoa3:amphibior",
       "spawnReason": "spawner",
-      "biomes": {"ids": ["twilightforest:spooky_forest"]},
-      "dimensionId": 7,
-      "dimensionName": "dimension.twilightforest",
-      "hints": ["gui.mobtracker.hint.spawner_only"]
+      "biomes": {"ids": ["aoa3:lborean"]},
+      "dimensionId": 814,
+      "dimensionName": "dimension.aoa.lborean",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:amphibiyte",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["minecraft:ocean", "minecraft:deep_ocean"]},
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:anemia",
+      "spawnReason": "event",
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "timeOfDay": [{"start": 12600, "end": 23059}]
+    },
+    {
+      "entityId": "aoa3:arc_wizard",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:shyrelands"]},
+      "dimensionId": 820,
+      "dimensionName": "dimension.aoa.shyrelands",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:arcworm",
+      "spawnReason": "other",
+      "biomes": {"ids": ["aoa3:shyrelands"]},
+      "dimensionId": 820,
+      "dimensionName": "dimension.aoa.shyrelands"
+    },
+    {
+      "entityId": "aoa3:arkzyne",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:dustopia"]},
+      "dimensionId": 808,
+      "dimensionName": "dimension.aoa.dustopia",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:arocknid",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:deeplands"]},
+      "dimensionId": 807,
+      "dimensionName": "dimension.aoa.deeplands",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:bane",
+      "spawnReason": "event",
+      "biomes": {"ids": ["aoa3:greckon"]},
+      "dimensionId": 810,
+      "dimensionName": "dimension.aoa.greckon",
+      "summon": {"items": [{"id": "aoa3:haunted_idol"}]}
+    },
+    {
+      "entityId": "aoa3:bane_big",
+      "parent": "aoa3:bane"
+    },
+    {
+      "entityId": "aoa3:banshee",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:mysterium"]},
+      "dimensionId": 817,
+      "dimensionName": "dimension.aoa.mysterium",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:baron_lottoman",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:barathos"]},
+      "dimensionId": 802,
+      "dimensionName": "dimension.aoa.barathos",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:baroness",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:barathos"]},
+      "dimensionId": 802,
+      "dimensionName": "dimension.aoa.barathos",
+      "summon": {
+        "items": [{"id": "aoa3:warlock_gem"}],
+        "onBlock": "aoa3:baroness_altar"
+      },
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:baumba",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:lunalus"]},
+      "dimensionId": 816,
+      "dimensionName": "dimension.aoa.lunalus",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:blissard",
+      "spawnReason": "event",
+      "summon": {"items": [{"id": "aoa3:blissard_slab"}]}
+    },
+    {
+      "entityId": "aoa3:bloodmist",
+      "spawnReason": "event",
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "timeOfDay": [{"start": 12600, "end": 23059}]
+    },
+    {
+      "entityId": "aoa3:blue_flower",
+      "parent": "aoa3:vinocorne"
+    },
+    {
+      "entityId": "aoa3:blue_guardian",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:haven"]},
+      "dimensionId": 811,
+      "dimensionName": "dimension.aoa.haven",
+      "summon": {
+        "items": [{"id": "aoa3:voliant_heart"}],
+        "onBlock": "aoa3:guardian_altar"
+      },
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:blue_rune_templar",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:runandor"]},
+      "dimensionId": 819,
+      "dimensionName": "dimension.aoa.runandor",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:boreic_lottoman",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:lborean"]},
+      "dimensionId": 814,
+      "dimensionName": "dimension.aoa.lborean",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:candied_lottoman",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:candyland"]},
+      "dimensionId": 803,
+      "dimensionName": "dimension.aoa.candyland",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:cane_bug",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:candyland"]},
+      "dimensionId": 803,
+      "dimensionName": "dimension.aoa.candyland",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:celevian_lottoman",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:celeve"]},
+      "dimensionId": 804,
+      "dimensionName": "dimension.aoa.celeve",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:clunkhead",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:runandor"]},
+      "dimensionId": 819,
+      "dimensionName": "dimension.aoa.runandor",
+      "summon": {
+        "items": [{"id": "aoa3:mega_rune_stone"}],
+        "onBlock": "aoa3:clunkhead_altar"
+      },
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:compeer",
+      "spawnReason": "event",
+      "summon": {"items": [{"id": "aoa3:compeer_slab"}]}
+    },
+    {
+      "entityId": "aoa3:coniferon",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:ancient_cavern"]},
+      "dimensionId": 801,
+      "dimensionName": "dimension.aoa.ancientCavern",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:construct_of_servility",
+      "spawnReason": "event",
+      "summon": {"items": [{"id": "aoa3:construct_of_servility_slab"}]}
+    },
+    {
+      "entityId": "aoa3:corallus",
+      "spawnReason": "event",
+      "summon": {
+        "items": [{"id": "aoa3:amphibiyte_lung"}],
+        "onBlock": "minecraft:water"
+      }
+    },
+    {
+      "entityId": "aoa3:corby",
+      "spawnReason": "event",
+      "summon": {"items": [{"id": "aoa3:corby_slab"}]}
+    },
+    {
+      "entityId": "aoa3:corrupted_traveller",
+      "spawnReason": "structure",
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:cotton_candor",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:candyland"]},
+      "dimensionId": 803,
+      "dimensionName": "dimension.aoa.candyland",
+      "summon": {"items": [{"id": "aoa3:treat_bag"}]}
+    },
+    {
+      "entityId": "aoa3:craexxeus",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:shyrelands"]},
+      "dimensionId": 820,
+      "dimensionName": "dimension.aoa.shyrelands",
+      "summon": {
+        "items": [{"id": "aoa3:ancient_ring"}],
+        "onBlock": "aoa3:craexxeus_altar"
+      },
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:craggy",
+      "spawnReason": "event",
+      "summon": {"items": [{"id": "aoa3:craggy_slab"}]}
+    },
+    {
+      "entityId": "aoa3:creep",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:creeponia"]},
+      "dimensionId": 805,
+      "dimensionName": "dimension.aoa.creeponia",
+      "summon": {
+        "items": [{"id": "aoa3:explosive_gems"}],
+        "onBlock": "aoa3:creep_altar"
+      },
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:creep_banker",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:creeponia"]},
+      "dimensionId": 805,
+      "dimensionName": "dimension.aoa.creeponia",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:creeponia_lottoman",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:creeponia"]},
+      "dimensionId": 805,
+      "dimensionName": "dimension.aoa.creeponia",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:crusilisk",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:dustopia"]},
+      "dimensionId": 808,
+      "dimensionName": "dimension.aoa.dustopia",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:crystal_lottoman",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:crystevia"]},
+      "dimensionId": 806,
+      "dimensionName": "dimension.aoa.crystevia",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:crystal_trader",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:crystevia"]},
+      "dimensionId": 806,
+      "dimensionName": "dimension.aoa.crystevia",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:crystocore",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:crystevia"]},
+      "dimensionId": 806,
+      "dimensionName": "dimension.aoa.crystevia",
+      "summon": {
+        "items": [{"id": "aoa3:giant_crystal"}],
+        "onBlock": "aoa3:power_station"
+      },
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:dark_beast",
+      "spawnReason": "event",
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "timeOfDay": [{"start": 12600, "end": 23059}],
+      "moonPhases": [0]
+    },
+    {
+      "entityId": "aoa3:dawnlight",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:haven"]},
+      "dimensionId": 811,
+      "dimensionName": "dimension.aoa.haven",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:daysee",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:gardencia"]},
+      "dimensionId": 809,
+      "dimensionName": "dimension.aoa.gardencia",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:death_hunter",
+      "spawnReason": "event",
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "timeOfDay": [{"start": 480, "end": 13004}]
+    },
+    {
+      "entityId": "aoa3:diocus",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:precasia"]},
+      "dimensionId": 818,
+      "dimensionName": "dimension.aoa.precasia",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:dracyon",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:lborean"]},
+      "dimensionId": 814,
+      "dimensionName": "dimension.aoa.lborean",
+      "summon": {
+        "items": [{"id": "aoa3:call_of_the_drake"}],
+        "onBlock": "aoa3:dracyon_altar"
+      },
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:draggy",
+      "spawnReason": "event",
+      "summon": {"items": [{"id": "aoa3:draggy_slab"}]}
+    },
+    {
+      "entityId": "aoa3:dungeon_keeper",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:immortallis"]},
+      "dimensionId": 812,
+      "dimensionName": "dimension.aoa.immortallis",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:dust_strider",
+      "spawnReason": "other",
+      "biomes": {"ids": ["aoa3:dustopia"]},
+      "dimensionId": 808,
+      "dimensionName": "dimension.aoa.dustopia"
+    },
+    {
+      "entityId": "aoa3:dustopian_lottoman",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:dustopia"]},
+      "dimensionId": 808,
+      "dimensionName": "dimension.aoa.dustopia",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:elite_skele_hopper",
+      "parent": "aoa3:skele_elder"
+    },
+    {
+      "entityId": "aoa3:elite_skele_pig",
+      "parent": "aoa3:skele_elder"
+    },
+    {
+      "entityId": "aoa3:elite_skeleman",
+      "parent": "aoa3:skele_elder"
+    },
+    {
+      "entityId": "aoa3:elusive",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:abyss"]},
+      "dimensionId": 800,
+      "dimensionName": "dimension.aoa.abyss",
+      "summon": {
+        "items": [{"id": "aoa3:staring_eye"}],
+        "onBlock": "aoa3:illusion_altar"
+      },
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:elusive_clone",
+      "parent": "aoa3:elusive"
+    },
+    {
+      "entityId": "aoa3:ender_carrier",
+      "spawnReason": "event",
+      "summon": {"items": [{"id": "aoa3:ender_carrier_slab"}]}
+    },
+    {
+      "entityId": "aoa3:enforcer",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:iromine"]},
+      "dimensionId": 813,
+      "dimensionName": "dimension.aoa.iromine",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:exohead",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:lelyetia"]},
+      "dimensionId": 815,
+      "dimensionName": "dimension.aoa.lelyetia",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:exoid",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:vox_ponds"]},
+      "dimensionId": 821,
+      "dimensionName": "dimension.aoa.voxPonds",
+      "summon": {
+        "items": [{"id": "aoa3:apoco_stone"}],
+        "onBlock": "aoa3:exoid_station"
+      },
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:explosives_expert",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:creeponia"]},
+      "dimensionId": 805,
+      "dimensionName": "dimension.aoa.creeponia",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:faceless_floater",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:greckon"]},
+      "dimensionId": 810,
+      "dimensionName": "dimension.aoa.greckon",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:fake_zorp",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:lunalus"]},
+      "dimensionId": 816,
+      "dimensionName": "dimension.aoa.lunalus",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:fenix",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:immortallis"]},
+      "dimensionId": 812,
+      "dimensionName": "dimension.aoa.immortallis",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:flash",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:immortallis"]},
+      "dimensionId": 812,
+      "dimensionName": "dimension.aoa.immortallis",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:flesh_eater",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:abyss"]},
+      "dimensionId": 800,
+      "dimensionName": "dimension.aoa.abyss",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:floro_lottoman",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:gardencia"]},
+      "dimensionId": 809,
+      "dimensionName": "dimension.aoa.gardencia",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:friendly_creeper",
+      "spawnReason": "event",
+      "summon": {"items": [{"id": "aoa3:creepified_sword"}]}
+    },
+    {
+      "entityId": "aoa3:fungock",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:mysterium"]},
+      "dimensionId": 817,
+      "dimensionName": "dimension.aoa.mysterium",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:ghastus",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:immortallis"]},
+      "dimensionId": 812,
+      "dimensionName": "dimension.aoa.immortallis",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:ghostly_bugeye",
+      "spawnReason": "event",
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "timeOfDay": [{"start": 12600, "end": 23059}]
+    },
+    {
+      "entityId": "aoa3:ghostly_charger",
+      "spawnReason": "event",
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "timeOfDay": [{"start": 12600, "end": 23059}]
+    },
+    {
+      "entityId": "aoa3:ghostly_cyclops",
+      "spawnReason": "event",
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "timeOfDay": [{"start": 12600, "end": 23059}]
+    },
+    {
+      "entityId": "aoa3:ghostly_goblin",
+      "spawnReason": "event",
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "timeOfDay": [{"start": 12600, "end": 23059}]
+    },
+    {
+      "entityId": "aoa3:ghostly_night_reaper",
+      "spawnReason": "event",
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "timeOfDay": [{"start": 12600, "end": 23059}]
+    },
+    {
+      "entityId": "aoa3:ghostly_sasquatch",
+      "spawnReason": "event",
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "timeOfDay": [{"start": 12600, "end": 23059}]
+    },
+    {
+      "entityId": "aoa3:gingerbird",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:candyland"]},
+      "dimensionId": 803,
+      "dimensionName": "dimension.aoa.candyland",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:gingerbread_man",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:candyland"]},
+      "dimensionId": 803,
+      "dimensionName": "dimension.aoa.candyland",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:gnawer",
+      "spawnReason": "event",
+      "summon": {"items": [{"id": "aoa3:gnawer_slab"}]}
+    },
+    {
+      "entityId": "aoa3:golden_lottoman",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:iromine"]},
+      "dimensionId": 813,
+      "dimensionName": "dimension.aoa.iromine",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:goldorth",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:ancient_cavern"]},
+      "dimensionId": 801,
+      "dimensionName": "dimension.aoa.ancientCavern",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:goldum",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:immortallis"]},
+      "dimensionId": 812,
+      "dimensionName": "dimension.aoa.immortallis",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:goldus",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:immortallis"]},
+      "dimensionId": 812,
+      "dimensionName": "dimension.aoa.immortallis",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:goofer",
+      "spawnReason": "event",
+      "summon": {"items": [{"id": "aoa3:goofer_slab"}]}
+    },
+    {
+      "entityId": "aoa3:gorb_arms_dealer",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:mysterium"]},
+      "dimensionId": 817,
+      "dimensionName": "dimension.aoa.mysterium",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:gorb_citizen",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:mysterium"]},
+      "dimensionId": 817,
+      "dimensionName": "dimension.aoa.mysterium",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:gorb_engineer",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:mysterium"]},
+      "dimensionId": 817,
+      "dimensionName": "dimension.aoa.mysterium",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:graw",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:lelyetia"]},
+      "dimensionId": 815,
+      "dimensionName": "dimension.aoa.lelyetia",
+      "summon": {
+        "items": [{"id": "aoa3:guardians_eye"}],
+        "onBlock": "aoa3:graw_altar"
+      },
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:green_flower",
+      "parent": "aoa3:vinocorne"
+    },
+    {
+      "entityId": "aoa3:green_guardian",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:haven"]},
+      "dimensionId": 811,
+      "dimensionName": "dimension.aoa.haven",
+      "summon": {
+        "items": [{"id": "aoa3:voliant_heart"}],
+        "onBlock": "aoa3:guardian_altar"
+      },
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:green_rune_templar",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:runandor"]},
+      "dimensionId": 819,
+      "dimensionName": "dimension.aoa.runandor",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:gyro",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:celeve"]},
+      "dimensionId": 804,
+      "dimensionName": "dimension.aoa.celeve",
+      "summon": {
+        "items": [{"id": "aoa3:toy_gyrocopter"}],
+        "onBlock": "aoa3:toy_box"
+      },
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:harkos",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:dustopia"]},
+      "dimensionId": 808,
+      "dimensionName": "dimension.aoa.dustopia",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:haunted_lottoman",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:greckon"]},
+      "dimensionId": 810,
+      "dimensionName": "dimension.aoa.greckon",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:headless_destroyer",
+      "spawnReason": "event",
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "timeOfDay": [{"start": 480, "end": 13004}]
+    },
+    {
+      "entityId": "aoa3:healing_golem",
+      "spawnReason": "event",
+      "summon": {"items": [{"id": "aoa3:healing_golem_slab"}]}
+    },
+    {
+      "entityId": "aoa3:hellquin",
+      "spawnReason": "event",
+      "summon": {"items": [{"id": "aoa3:hellquin_slab"}]}
+    },
+    {
+      "entityId": "aoa3:hive_king",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:barathos"]},
+      "dimensionId": 802,
+      "dimensionName": "dimension.aoa.barathos",
+      "summon": {
+        "items": [{"id": "aoa3:hive_egg"}],
+        "onBlock": "aoa3:hive_spawner"
+      },
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:hive_soldier",
+      "spawnReason": "event",
+      "summon": {"items": [{"id": "aoa3:hive_staff"}]}
+    },
+    {
+      "entityId": "aoa3:hive_worker",
+      "parent": "aoa3:hive_king"
+    },
+    {
+      "entityId": "aoa3:horntail",
+      "spawnReason": "event",
+      "summon": {"items": [{"id": "aoa3:horntail_slab"}]}
+    },
+    {
+      "entityId": "aoa3:horon",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:ancient_cavern"]},
+      "dimensionId": 801,
+      "dimensionName": "dimension.aoa.ancientCavern",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:host",
+      "spawnReason": "event",
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "timeOfDay": [{"start": 480, "end": 13004}]
+    },
+    {
+      "entityId": "aoa3:hunter_master",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:lelyetia"]},
+      "dimensionId": 815,
+      "dimensionName": "dimension.aoa.lelyetia",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:hydrolisk",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:lborean"]},
+      "dimensionId": 814,
+      "dimensionName": "dimension.aoa.lborean",
+      "summon": {
+        "items": [{"id": "aoa3:pure_water_stone"}],
+        "onBlock": "aoa3:hydro_table"
+      },
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:hydrolon",
+      "parent": "aoa3:hydrolisk"
+    },
+    {
+      "entityId": "aoa3:ice_giant",
+      "spawnReason": "event",
+      "biomes": {"types": ["SNOWY"]},
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "timeOfDay": [{"start": 480, "end": 13004}]
+    },
+    {
+      "entityId": "aoa3:inmate_x",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:lunalus"]},
+      "dimensionId": 816,
+      "dimensionName": "dimension.aoa.lunalus",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:inmate_y",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:lunalus"]},
+      "dimensionId": 816,
+      "dimensionName": "dimension.aoa.lunalus",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:iosaur",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:precasia"]},
+      "dimensionId": 818,
+      "dimensionName": "dimension.aoa.precasia",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:irkling",
+      "spawnReason": "event",
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "timeOfDay": [{"start": 12600, "end": 23059}],
+      "moonPhases": [0]
+    },
+    {
+      "entityId": "aoa3:jawe",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:abyss"]},
+      "dimensionId": 800,
+      "dimensionName": "dimension.aoa.abyss",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:kaiyu",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:precasia"]},
+      "dimensionId": 818,
+      "dimensionName": "dimension.aoa.precasia",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:kajaros",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:dustopia"]},
+      "dimensionId": 808,
+      "dimensionName": "dimension.aoa.dustopia",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:king_bambambam",
+      "spawnReason": "event",
+      "biomes": {"types": ["NETHER"]},
+      "dimensionId": -1,
+      "dimensionName": "dimension.the_nether",
+      "summon": {"items": [{"id": "aoa3:explosive_idol"}]}
+    },
+    {
+      "entityId": "aoa3:king_shroomus",
+      "spawnReason": "event",
+      "biomes": {"ids": ["aoa3:mysterium"]},
+      "dimensionId": 817,
+      "dimensionName": "dimension.aoa.mysterium",
+      "summon": {"items": [{"id": "aoa3:shroom_stone"}]}
+    },
+    {
+      "entityId": "aoa3:klobber",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:immortallis"]},
+      "dimensionId": 812,
+      "dimensionName": "dimension.aoa.immortallis",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:kror",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:deeplands"]},
+      "dimensionId": 807,
+      "dimensionName": "dimension.aoa.deeplands",
+      "summon": {
+        "items": [{"id": "aoa3:boulder_dash"}],
+        "onBlock": "aoa3:kror_altar"
+      },
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:leafy_giant",
+      "spawnReason": "event",
+      "biomes": {"types": ["CONIFEROUS"]},
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "timeOfDay": [{"start": 480, "end": 13004}]
+    },
+    {
+      "entityId": "aoa3:lelyetian_banker",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:lelyetia"]},
+      "dimensionId": 815,
+      "dimensionName": "dimension.aoa.lelyetia",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:lelyetian_lottoman",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:lelyetia"]},
+      "dimensionId": 815,
+      "dimensionName": "dimension.aoa.lelyetia",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:lelyetian_trader",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:lelyetia"]},
+      "dimensionId": 815,
+      "dimensionName": "dimension.aoa.lelyetia",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:lightwalker",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:shyrelands"]},
+      "dimensionId": 820,
+      "dimensionName": "dimension.aoa.shyrelands",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:linger",
+      "spawnReason": "event",
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "timeOfDay": [{"start": 12600, "end": 23059}]
+    },
+    {
+      "entityId": "aoa3:living_fungi",
+      "spawnReason": "other",
+      "biomes": {"types": ["CONIFEROUS"]}
+    },
+    {
+      "entityId": "aoa3:lunar_lottoman",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:lunalus"]},
+      "dimensionId": 816,
+      "dimensionName": "dimension.aoa.lunalus",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:luxocron",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:shyrelands"]},
+      "dimensionId": 820,
+      "dimensionName": "dimension.aoa.shyrelands",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:mecha_cyclops",
+      "spawnReason": "event",
+      "summon": {"items": [{"id": "aoa3:mecha_cyclops_slab"}]}
+    },
+    {
+      "entityId": "aoa3:mecha_skellox",
+      "spawnReason": "event",
+      "summon": {"items": [{"id": "aoa3:mecha_skellox_slab"}]}
+    },
+    {
+      "entityId": "aoa3:mechbot",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:iromine"]},
+      "dimensionId": 813,
+      "dimensionName": "dimension.aoa.iromine",
+      "summon": {
+        "items": [{"id": "aoa3:gold_spring"}],
+        "onBlock": "aoa3:mechbot_altar"
+      },
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:mechyon",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:iromine"]},
+      "dimensionId": 813,
+      "dimensionName": "dimension.aoa.iromine",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:merkyre",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:dustopia"]},
+      "dimensionId": 808,
+      "dimensionName": "dimension.aoa.dustopia",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:mermage",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:lborean"]},
+      "dimensionId": 814,
+      "dimensionName": "dimension.aoa.lborean",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:mirage",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:immortallis"]},
+      "dimensionId": 812,
+      "dimensionName": "dimension.aoa.immortallis",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:miskel",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:dustopia"]},
+      "dimensionId": 808,
+      "dimensionName": "dimension.aoa.dustopia",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:modulo",
+      "spawnReason": "event",
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "timeOfDay": [{"start": 12600, "end": 23059}]
+    },
+    {
+      "entityId": "aoa3:mushroom_spider",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:mysterium"]},
+      "dimensionId": 817,
+      "dimensionName": "dimension.aoa.mysterium",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:mystic_lottoman",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:mysterium"]},
+      "dimensionId": 817,
+      "dimensionName": "dimension.aoa.mysterium",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:nethengeic_beast",
+      "spawnReason": "spawner",
+      "biomes": {"types": ["NETHER"]},
+      "dimensionId": -1,
+      "dimensionName": "dimension.the_nether",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:nethengeic_wither",
+      "spawnReason": "event",
+      "biomes": {"types": ["NETHER"]},
+      "dimensionId": -1,
+      "dimensionName": "dimension.the_nether",
+      "summon": {"items": [{"id": "aoa3:nethengeic_callstone"}]}
+    },
+    {
+      "entityId": "aoa3:night_watcher",
+      "spawnReason": "event",
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "timeOfDay": [{"start": 12600, "end": 23059}],
+      "moonPhases": [0]
+    },
+    {
+      "entityId": "aoa3:nightmare_spider",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:mysterium"]},
+      "dimensionId": 817,
+      "dimensionName": "dimension.aoa.mysterium",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:nightwing",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:vox_ponds"]},
+      "dimensionId": 821,
+      "dimensionName": "dimension.aoa.voxPonds",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:nipper",
+      "spawnReason": "event",
+      "biomes": {"ids": ["aoa3:deeplands"]},
+      "dimensionId": 807,
+      "dimensionName": "dimension.aoa.deeplands",
+      "hints": ["gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:okazor",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:dustopia"]},
+      "dimensionId": 808,
+      "dimensionName": "dimension.aoa.dustopia",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:opteryx",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:precasia"]},
+      "dimensionId": 818,
+      "dimensionName": "dimension.aoa.precasia",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:orange_flower",
+      "parent": "aoa3:vinocorne"
+    },
+    {
+      "entityId": "aoa3:orbling",
+      "spawnReason": "other"
+    },
+    {
+      "entityId": "aoa3:paravite",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:lelyetia"]},
+      "dimensionId": 815,
+      "dimensionName": "dimension.aoa.lelyetia",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:penguin",
+      "spawnReason": "event",
+      "summon": {"items": [{"id": "aoa3:penguin_slab"}]}
+    },
+    {
+      "entityId": "aoa3:penumbra",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:ancient_cavern"]},
+      "dimensionId": 801,
+      "dimensionName": "dimension.aoa.ancientCavern",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:phantom",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:mysterium"]},
+      "dimensionId": 817,
+      "dimensionName": "dimension.aoa.mysterium",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:pigotron",
+      "spawnReason": "natural",
+      "biomes": {"types": ["NETHER"]},
+      "dimensionId": -1,
+      "dimensionName": "dimension.the_nether"
+    },
+    {
+      "entityId": "aoa3:plateosaur",
+      "spawnReason": "event",
+      "summon": {"items": [{"id": "aoa3:plateosaur_slab"}]}
+    },
+    {
+      "entityId": "aoa3:pod_plant",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:gardencia"]},
+      "dimensionId": 809,
+      "dimensionName": "dimension.aoa.gardencia",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:portal_master",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:mysterium"]},
+      "dimensionId": 817,
+      "dimensionName": "dimension.aoa.mysterium",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:precasian_lottoman",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:precasia"]},
+      "dimensionId": 818,
+      "dimensionName": "dimension.aoa.precasia",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:primitive_carrotop",
+      "spawnReason": "event",
+      "biomes": {"ids": ["aoa3:precasia"]},
+      "dimensionId": 818,
+      "dimensionName": "dimension.aoa.precasia",
+      "summon": {
+        "items": [{"id": "aoa3:blank_realmstone"}],
+        "onBlock": "minecraft:carrots"
+      }
+    },
+    {
+      "entityId": "aoa3:primordial_banker",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:dustopia"]},
+      "dimensionId": 808,
+      "dimensionName": "dimension.aoa.dustopia",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:primordial_guide",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:dustopia"]},
+      "dimensionId": 808,
+      "dimensionName": "dimension.aoa.dustopia",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:primordial_merchant",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:dustopia"]},
+      "dimensionId": 808,
+      "dimensionName": "dimension.aoa.dustopia",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:primordial_spellbinder",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:dustopia"]},
+      "dimensionId": 808,
+      "dimensionName": "dimension.aoa.dustopia",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:primordial_wizard",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:dustopia"]},
+      "dimensionId": 808,
+      "dimensionName": "dimension.aoa.dustopia",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:professor",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:iromine"]},
+      "dimensionId": 813,
+      "dimensionName": "dimension.aoa.iromine",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:proshield",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:immortallis"]},
+      "dimensionId": 812,
+      "dimensionName": "dimension.aoa.immortallis",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:purple_flower",
+      "parent": "aoa3:vinocorne"
+    },
+    {
+      "entityId": "aoa3:rammerhorn",
+      "spawnReason": "event",
+      "summon": {"items": [{"id": "aoa3:rammerhorn_slab"}]}
+    },
+    {
+      "entityId": "aoa3:rawbone",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:lelyetia"]},
+      "dimensionId": 815,
+      "dimensionName": "dimension.aoa.lelyetia",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:raxxan",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:dustopia"]},
+      "dimensionId": 808,
+      "dimensionName": "dimension.aoa.dustopia",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:reaper_twins",
+      "spawnReason": "event",
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "timeOfDay": [{"start": 480, "end": 13004}]
+    },
+    {
+      "entityId": "aoa3:reaver",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:immortallis"]},
+      "dimensionId": 812,
+      "dimensionName": "dimension.aoa.immortallis",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:red_guardian",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:haven"]},
+      "dimensionId": 811,
+      "dimensionName": "dimension.aoa.haven",
+      "summon": {
+        "items": [{"id": "aoa3:voliant_heart"}],
+        "onBlock": "aoa3:guardian_altar"
+      },
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:red_rune_templar",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:runandor"]},
+      "dimensionId": 819,
+      "dimensionName": "dimension.aoa.runandor",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:refluct",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:lunalus"]},
+      "dimensionId": 816,
+      "dimensionName": "dimension.aoa.lunalus",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:rock_rider",
+      "spawnReason": "event",
+      "biomes": {"ids": ["aoa3:haven"]},
+      "dimensionId": 811,
+      "dimensionName": "dimension.aoa.haven",
+      "summon": {"items": [{"id": "aoa3:heavy_boulder"}]}
+    },
+    {
+      "entityId": "aoa3:rocky_lottoman",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:deeplands"]},
+      "dimensionId": 807,
+      "dimensionName": "dimension.aoa.deeplands",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:roloscope",
+      "spawnReason": "event",
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "timeOfDay": [{"start": 12600, "end": 23059}]
+    },
+    {
+      "entityId": "aoa3:runic_golem",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:mysterium"]},
+      "dimensionId": 817,
+      "dimensionName": "dimension.aoa.mysterium",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:runic_guardian",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:runandor"]},
+      "dimensionId": 819,
+      "dimensionName": "dimension.aoa.runandor",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:runic_lottoman",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:runandor"]},
+      "dimensionId": 819,
+      "dimensionName": "dimension.aoa.runandor",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:sand_giant",
+      "spawnReason": "event",
+      "biomes": {"types": ["SANDY"]},
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "timeOfDay": [{"start": 480, "end": 13004}]
+    },
+    {
+      "entityId": "aoa3:scrubby",
+      "spawnReason": "event",
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "timeOfDay": [{"start": 12600, "end": 23059}],
+      "moonPhases": [0]
+    },
+    {
+      "entityId": "aoa3:shaddy",
+      "spawnReason": "event",
+      "summon": {"items": [{"id": "aoa3:shaddy_slab"}]}
+    },
+    {
+      "entityId": "aoa3:shadow_stalker",
+      "spawnReason": "event",
+      "summon": {"items": [{"id": "aoa3:shadowlord_staff"}]}
+    },
+    {
+      "entityId": "aoa3:shadowlord",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:abyss"]},
+      "dimensionId": 800,
+      "dimensionName": "dimension.aoa.abyss",
+      "summon": {
+        "items": [{"id": "aoa3:book_of_shadows"}],
+        "onBlock": "aoa3:shadow_altar"
+      },
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:shavo",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:immortallis"]},
+      "dimensionId": 812,
+      "dimensionName": "dimension.aoa.immortallis",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:shyre_archer",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:shyrelands"]},
+      "dimensionId": 820,
+      "dimensionName": "dimension.aoa.shyrelands",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:shyre_banker",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:shyrelands"]},
+      "dimensionId": 820,
+      "dimensionName": "dimension.aoa.shyrelands",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:shyre_troll",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:shyrelands"]},
+      "dimensionId": 820,
+      "dimensionName": "dimension.aoa.shyrelands",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:shyrelands_lottoman",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:shyrelands"]},
+      "dimensionId": 820,
+      "dimensionName": "dimension.aoa.shyrelands",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:silverfoot",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:iromine"]},
+      "dimensionId": 813,
+      "dimensionName": "dimension.aoa.iromine",
+      "summon": {
+        "items": [{"id": "aoa3:silvro_coin"}],
+        "onBlock": "aoa3:silverfoot_altar"
+      },
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:skele_elder",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:precasia"]},
+      "dimensionId": 818,
+      "dimensionName": "dimension.aoa.precasia",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:skele_hopper",
+      "parent": "aoa3:skele_elder"
+    },
+    {
+      "entityId": "aoa3:skele_pig",
+      "parent": "aoa3:skele_elder"
+    },
+    {
+      "entityId": "aoa3:skeledon",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:immortallis"]},
+      "dimensionId": 812,
+      "dimensionName": "dimension.aoa.immortallis",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:skelekyte",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:immortallis"]},
+      "dimensionId": 812,
+      "dimensionName": "dimension.aoa.immortallis",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:skeleman",
+      "parent": "aoa3:skele_elder"
+    },
+    {
+      "entityId": "aoa3:skeletron",
+      "parent": "aoa3:skele_elder"
+    },
+    {
+      "entityId": "aoa3:skellox",
+      "spawnReason": "event",
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "timeOfDay": [{"start": 12600, "end": 23059}],
+      "moonPhases": [0]
+    },
+    {
+      "entityId": "aoa3:smash",
+      "spawnReason": "event",
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "summon": {"items": [{"id": "aoa3:troll_idol"}]}
+    },
+    {
+      "entityId": "aoa3:soulscorne",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:shyrelands"]},
+      "dimensionId": 820,
+      "dimensionName": "dimension.aoa.shyrelands",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:spectral_wizard",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:runandor"]},
+      "dimensionId": 819,
+      "dimensionName": "dimension.aoa.runandor",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:spikeback",
+      "spawnReason": "event",
+      "summon": {"items": [{"id": "aoa3:spikeback_slab"}]}
+    },
+    {
+      "entityId": "aoa3:spinoledon",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:precasia"]},
+      "dimensionId": 818,
+      "dimensionName": "dimension.aoa.precasia",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:spirit_guardian",
+      "spawnReason": "other",
+      "biomes": {"ids": ["aoa3:mysterium"]},
+      "dimensionId": 817,
+      "dimensionName": "dimension.aoa.mysterium"
+    },
+    {
+      "entityId": "aoa3:spirit_protector",
+      "spawnReason": "other",
+      "biomes": {"ids": ["aoa3:mysterium"]},
+      "dimensionId": 817,
+      "dimensionName": "dimension.aoa.mysterium"
+    },
+    {
+      "entityId": "aoa3:spraggy",
+      "spawnReason": "event",
+      "summon": {"items": [{"id": "aoa3:spraggy_slab"}]}
+    },
+    {
+      "entityId": "aoa3:stone_giant",
+      "spawnReason": "event",
+      "biomes": {"types": ["MOUNTAIN"]},
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "timeOfDay": [{"start": 480, "end": 13004}]
+    },
+    {
+      "entityId": "aoa3:store_keeper",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:vox_ponds"]},
+      "dimensionId": 821,
+      "dimensionName": "dimension.aoa.voxPonds",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:strong_skele_hopper",
+      "parent": "aoa3:skele_elder"
+    },
+    {
+      "entityId": "aoa3:strong_skele_pig",
+      "parent": "aoa3:skele_elder"
+    },
+    {
+      "entityId": "aoa3:strong_skeleman",
+      "parent": "aoa3:skele_elder"
+    },
+    {
+      "entityId": "aoa3:terrestrial",
+      "spawnReason": "event",
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "timeOfDay": [{"start": 12600, "end": 23059}]
+    },
+    {
+      "entityId": "aoa3:token_collector",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:immortallis"]},
+      "dimensionId": 812,
+      "dimensionName": "dimension.aoa.immortallis",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:toxic_lottoman",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:vox_ponds"]},
+      "dimensionId": 821,
+      "dimensionName": "dimension.aoa.voxPonds",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:toy_merchant",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:celeve"]},
+      "dimensionId": 804,
+      "dimensionName": "dimension.aoa.celeve",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:tree_spirit",
+      "spawnReason": "other",
+      "biomes": {"ids": ["minecraft:forest", "minecraft:forest_hills"]}
+    },
+    {
+      "entityId": "aoa3:triclops",
+      "spawnReason": "event",
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "timeOfDay": [{"start": 480, "end": 13004}]
+    },
+    {
+      "entityId": "aoa3:twinkling_lottoman",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:haven"]},
+      "dimensionId": 811,
+      "dimensionName": "dimension.aoa.haven",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:tyrosaur",
+      "spawnReason": "event",
+      "biomes": {"ids": ["aoa3:precasia"]},
+      "dimensionId": 818,
+      "dimensionName": "dimension.aoa.precasia",
+      "summon": {"items": [{"id": "aoa3:bone_horn"}]}
+    },
+    {
+      "entityId": "aoa3:undead_troll",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:mysterium"]},
+      "dimensionId": 817,
+      "dimensionName": "dimension.aoa.mysterium",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:urioh",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:immortallis"]},
+      "dimensionId": 812,
+      "dimensionName": "dimension.aoa.immortallis",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:urv",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:immortallis"]},
+      "dimensionId": 812,
+      "dimensionName": "dimension.aoa.immortallis",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:vertebron",
+      "spawnReason": "event",
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "timeOfDay": [{"start": 12600, "end": 23059}]
+    },
+    {
+      "entityId": "aoa3:vine_wizard",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:gardencia"]},
+      "dimensionId": 809,
+      "dimensionName": "dimension.aoa.gardencia",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:vinocorne",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:gardencia"]},
+      "dimensionId": 809,
+      "dimensionName": "dimension.aoa.gardencia",
+      "summon": {
+        "items": [{"id": "aoa3:petals"}],
+        "onBlock": "aoa3:vinocorne_shrine"
+      },
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:visage",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:immortallis"]},
+      "dimensionId": 812,
+      "dimensionName": "dimension.aoa.immortallis",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:visualent",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:lunalus"]},
+      "dimensionId": 816,
+      "dimensionName": "dimension.aoa.lunalus",
+      "summon": {
+        "items": [{"id": "aoa3:observing_eye"}],
+        "onBlock": "aoa3:visualent_altar"
+      },
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:voxxulon",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:vox_ponds"]},
+      "dimensionId": 821,
+      "dimensionName": "dimension.aoa.voxPonds",
+      "summon": {
+        "items": [{"id": "aoa3:vile_stone"}],
+        "onBlock": "aoa3:voxxulon_altar"
+      },
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:waggy",
+      "spawnReason": "event",
+      "summon": {"items": [{"id": "aoa3:waggy_slab"}]}
+    },
+    {
+      "entityId": "aoa3:walker",
+      "spawnReason": "event",
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "timeOfDay": [{"start": 12600, "end": 23059}]
+    },
+    {
+      "entityId": "aoa3:wood_giant",
+      "spawnReason": "event",
+      "dimensionId": 0,
+      "dimensionName": "dimension.overworld",
+      "timeOfDay": [{"start": 480, "end": 13004}]
+    },
+    {
+      "entityId": "aoa3:xxeus",
+      "parent": "aoa3:craexxeus"
+    },
+    {
+      "entityId": "aoa3:yellow_flower",
+      "parent": "aoa3:vinocorne"
+    },
+    {
+      "entityId": "aoa3:yellow_guardian",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:haven"]},
+      "dimensionId": 811,
+      "dimensionName": "dimension.aoa.haven",
+      "summon": {
+        "items": [{"id": "aoa3:voliant_heart"}],
+        "onBlock": "aoa3:guardian_altar"
+      },
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.block_triggered"]
+    },
+    {
+      "entityId": "aoa3:yellow_rune_templar",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:runandor"]},
+      "dimensionId": 819,
+      "dimensionName": "dimension.aoa.runandor",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:zal_banker",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:lunalus"]},
+      "dimensionId": 816,
+      "dimensionName": "dimension.aoa.lunalus",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:zal_child",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:lunalus"]},
+      "dimensionId": 816,
+      "dimensionName": "dimension.aoa.lunalus",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:zal_citizen",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:lunalus"]},
+      "dimensionId": 816,
+      "dimensionName": "dimension.aoa.lunalus",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:zal_grocer",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:lunalus"]},
+      "dimensionId": 816,
+      "dimensionName": "dimension.aoa.lunalus",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:zal_herbalist",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:lunalus"]},
+      "dimensionId": 816,
+      "dimensionName": "dimension.aoa.lunalus",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:zal_spellbinder",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:lunalus"]},
+      "dimensionId": 816,
+      "dimensionName": "dimension.aoa.lunalus",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:zal_vendor",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["aoa3:lunalus"]},
+      "dimensionId": 816,
+      "dimensionName": "dimension.aoa.lunalus",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "aoa3:zarg",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:lunalus"]},
+      "dimensionId": 816,
+      "dimensionName": "dimension.aoa.lunalus",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:zhinx",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:lelyetia"]},
+      "dimensionId": 815,
+      "dimensionName": "dimension.aoa.lelyetia",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
+    },
+    {
+      "entityId": "aoa3:zorp",
+      "spawnReason": "spawner",
+      "biomes": {"ids": ["aoa3:lunalus"]},
+      "dimensionId": 816,
+      "dimensionName": "dimension.aoa.lunalus",
+      "hints": ["gui.mobtracker.hint.structure", "gui.mobtracker.hint.spawner_only"]
     }
   ]
 }

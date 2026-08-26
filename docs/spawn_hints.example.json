@@ -5,18 +5,28 @@
     {
       "entityId": "iceandfire:seaserpent",
       "spawnReason": "worldgen",
-      "biomes": {
-        "types": ["OCEAN"]
-      },
+      "biomes": {"types": ["OCEAN"]},
       "groundBlocks": ["water"],
-      "lightLevels": {
-        "min": 0,
-        "max": 15
-      },
-      "yLevels": {
-        "min": 20,
-        "max": 59
-      }
+      "lightLevels": {"min": 0, "max": 15},
+      "yLevels": {"min": 20, "max": 59}
+    },
+    {
+      "entityId": "minecraft:endermite",
+      "spawnReason": "event",
+      "summon": {"items": [{"id": "minecraft:ender_pearl"}]}
+    },
+    {
+      "entityId": "twilightforest:hydra",
+      "spawnReason": "structure",
+      "biomes": {"ids": ["twilightforest:fire_swamp"]},
+      "dimensionId": 7,
+      "dimensionName": "dimension.twilightforest",
+      "hints": ["gui.mobtracker.hint.structure"]
+    },
+    {
+      "entityId": "twilightforest:hydra_head",
+      "parent": "twilightforest:hydra",
+      "spawnReason": "other"
     }
   ]
 }

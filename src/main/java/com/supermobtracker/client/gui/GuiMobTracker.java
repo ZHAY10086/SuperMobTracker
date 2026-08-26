@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 
+import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
@@ -22,7 +23,10 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.resources.I18n;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.TextComponentString;
@@ -91,6 +95,9 @@ public class GuiMobTracker extends GuiScreen {
     // Unknown dimension tooltip data (set during drawRightPanel, rendered in drawDimensionTooltip)
     private boolean showDimensionUnknownTooltip = false;
     private int dimensionLabelX, dimensionLabelY, dimensionLabelW;
+
+    // Interactive entries shown by structured summon hints (updated during draw)
+    private final List<SummonWidget> summonWidgets = new ArrayList<>();
 
     private static final int lightColor = 0xFFFFAA;
     private static final int ylevelColor = 0xAAAAFF;
@@ -291,6 +298,12 @@ public class GuiMobTracker extends GuiScreen {
             if (dropsWindow.handleClick(mouseX, mouseY, mouseButton)) return;
         }
 
+        SummonWidget summonWidget = getSummonWidgetAt(mouseX, mouseY);
+        if (summonWidget != null && (mouseButton == 0 || mouseButton == 1)) {
+            handleSummonWidgetClick(summonWidget, mouseButton);
+            return;
+        }
+
         // Right-click on filter field clears it
         if (mouseButton == 1 &&
             mouseX >= filterField.x && mouseX <= filterField.x + filterField.width &&
@@ -449,6 +462,7 @@ public class GuiMobTracker extends GuiScreen {
             biomeTooltipWidget.draw(mouseX, mouseY);
             drawDimensionTooltip(mouseX, mouseY);
             drawPreviewTooltip(mouseX, mouseY);
+            drawSummonTooltip(mouseX, mouseY);
             listWidget.drawTooltips(mouseX, mouseY);
         }
 
@@ -557,6 +571,7 @@ public class GuiMobTracker extends GuiScreen {
 
         // Clear tooltip data
         showDimensionUnknownTooltip = false;
+        summonWidgets.clear();
 
         String sep = I18n.format("gui.mobtracker.separator");
 
@@ -707,6 +722,7 @@ public class GuiMobTracker extends GuiScreen {
         int condsX = textX + 6;
         String spawnReason = I18n.format("gui.mobtracker.spawnReason", formatSpawnReason(spawnConditions.spawnReason));
         textY = drawWrappedString(fontRenderer, spawnReason, condsX, textY, 12, textW, dimensionColor);
+        textY = drawSummonInfo(spawnConditions.summon, condsX, textY, textW, mouseX, mouseY);
 
         // Only show spawn condition details if they have valid data
         if (!spawnConditions.failed()) {
@@ -891,6 +907,167 @@ public class GuiMobTracker extends GuiScreen {
 
             biomeTooltipWidget.setData(translatedBiomes, condsX, biomesLabelY, fontRenderer.getStringWidth(biomesLabel));
             biomeTooltipWidget.updateScreenSize(width, height);
+        }
+    }
+
+    private int drawSummonInfo(SpawnConditionAnalyzer.SummonInfo summon,
+            int x, int y, int maxWidth, int mouseX, int mouseY) {
+        if (summon == null || summon.items.isEmpty()) return y;
+
+        String summonText = I18n.format("gui.mobtracker.summon.using");
+        y = drawWrappedString(fontRenderer, summonText, x, y, 12, maxWidth, hintColor);
+
+        int itemX = x + 6;
+        int itemMaxWidth = Math.max(1, maxWidth - 6);
+        for (SpawnConditionAnalyzer.SummonItem summonItem : summon.items) {
+            Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(summonItem.itemId));
+            if (item == null || y + 12 > panelMaxY) continue;
+
+            ItemStack stack = new ItemStack(item, summonItem.count, summonItem.metadata);
+            String name = stack.getDisplayName();
+            if (summonItem.count > 1) name = summonItem.count + " x " + name;
+
+            String visibleName = fontRenderer.trimStringToWidth(name, itemMaxWidth);
+            int itemWidth = fontRenderer.getStringWidth(visibleName);
+            boolean hovered = mouseX >= itemX && mouseX < itemX + itemWidth && mouseY >= y && mouseY < y + 12;
+
+            fontRenderer.drawString(visibleName, itemX, y, hovered ? 0xFFFF55 : 0xFFDD55);
+            summonWidgets.add(new SummonWidget(stack, null, itemX, y, itemWidth, 12));
+            y += 12;
+        }
+
+        if (summon.onBlock != null) {
+            String target = TranslationUtils.translateBlockName(summon.onBlock);
+            String targetText = I18n.format("gui.mobtracker.summon.on", target);
+            ItemStack blockStack = getSummonBlockStack(summon.onBlock);
+
+            if (!blockStack.isEmpty()) {
+                y = drawInteractiveSummonText(targetText, x, y, 12, maxWidth, mouseX, mouseY, blockStack, null);
+            } else {
+                y = drawWrappedString(fontRenderer, targetText, x, y, 12, maxWidth, hintColor);
+            }
+        } else if (summon.onEntity != null) {
+            ResourceLocation targetId = new ResourceLocation(summon.onEntity);
+            Entity targetEntity = analyzer.getEntityInstance(targetId);
+            String target = TranslationUtils.formatEntityName(targetId, targetEntity, true);
+            String targetText = I18n.format("gui.mobtracker.summon.on", target);
+
+            if (targetEntity != null) {
+                y = drawInteractiveSummonText(targetText, x, y, 12, maxWidth, mouseX, mouseY, ItemStack.EMPTY, targetId);
+            } else {
+                y = drawWrappedString(fontRenderer, targetText, x, y, 12, maxWidth, hintColor);
+            }
+        }
+
+        return y + 12;  // add extra spacing after summon info
+    }
+
+    private ItemStack getSummonBlockStack(String blockId) {
+        Block block = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(blockId));
+        if (block == null) return ItemStack.EMPTY;
+
+        Item item = Item.getItemFromBlock(block);
+        if (item == null) return ItemStack.EMPTY;
+
+        ItemStack stack = new ItemStack(item);
+        if (stack.isEmpty()) return ItemStack.EMPTY;
+
+        return stack;
+    }
+
+    private int drawInteractiveSummonText(String text, int x, int y, int lineHeight, int maxWidth,
+            int mouseX, int mouseY, ItemStack stack, ResourceLocation entityId) {
+        List<String> wrapped = Utils.wrapText(fontRenderer, text, maxWidth);
+        int totalHeight = lineHeight * wrapped.size();
+        if (y + totalHeight > panelMaxY) return y;
+
+        int textWidth = 1;
+        for (String line : wrapped) textWidth = Math.max(textWidth, fontRenderer.getStringWidth(line));
+
+        int startY = y;
+        boolean hovered = mouseX >= x && mouseX < x + textWidth && mouseY >= startY && mouseY < startY + totalHeight;
+        int textColor = hovered ? 0xFFFF55 : 0xFFDD55;
+
+        for (String line : wrapped) {
+            fontRenderer.drawString(line, x, y, textColor);
+            y += lineHeight;
+        }
+
+        summonWidgets.add(new SummonWidget(stack, entityId, x, startY, textWidth, totalHeight));
+
+        return y;
+    }
+
+    private void handleSummonWidgetClick(SummonWidget widget, int mouseButton) {
+        if (widget.entityId != null) {
+            selectEntity(widget.entityId);
+            listWidget.ensureVisible(widget.entityId);
+            return;
+        }
+
+        if (mouseButton == 0) {
+            JEIHelper.showItemRecipes(widget.stack);
+            return;
+        }
+
+        JEIHelper.showItemUses(widget.stack);
+    }
+
+    private SummonWidget getSummonWidgetAt(int mouseX, int mouseY) {
+        for (SummonWidget widget : summonWidgets) {
+            if (widget.isHovered(mouseX, mouseY)) return widget;
+        }
+
+        return null;
+    }
+
+    private void drawSummonTooltip(int mouseX, int mouseY) {
+        SummonWidget widget = getSummonWidgetAt(mouseX, mouseY);
+        if (widget == null) return;
+
+        List<String> tooltip = new ArrayList<>();
+
+        if (widget.entityId != null) {
+            String entityName = formatEntityName(widget.entityId, true);
+            tooltip.add(entityName);
+            if (!entityName.equals(widget.entityId.toString())) tooltip.add(widget.entityId.toString());
+
+            tooltip.add("");
+            tooltip.add(I18n.format("gui.mobtracker.summon.entity"));
+        } else {
+            tooltip.addAll(widget.stack.getTooltip(mc.player,
+                mc.gameSettings.advancedItemTooltips ? ITooltipFlag.TooltipFlags.ADVANCED : ITooltipFlag.TooltipFlags.NORMAL));
+            if (JEIHelper.isJEILoaded()) {
+                tooltip.add("");
+                tooltip.add(I18n.format("gui.mobtracker.summon.jei"));
+            }
+        }
+
+        GlStateManager.pushMatrix();
+        GlStateManager.translate(0.0F, 0.0F, 500.0F);
+        drawHoveringText(tooltip, mouseX, mouseY);
+        GlStateManager.popMatrix();
+    }
+
+    private static final class SummonWidget {
+        final ItemStack stack;
+        final ResourceLocation entityId;
+        final int x;
+        final int y;
+        final int width;
+        final int height;
+
+        SummonWidget(ItemStack stack, ResourceLocation entityId, int x, int y, int width, int height) {
+            this.stack = stack;
+            this.entityId = entityId;
+            this.x = x;
+            this.y = y;
+            this.width = width;
+            this.height = height;
+        }
+
+        boolean isHovered(int mouseX, int mouseY) {
+            return mouseX >= x && mouseX < x + width && mouseY >= y && mouseY < y + height;
         }
     }
 
