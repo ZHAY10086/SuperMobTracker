@@ -54,7 +54,7 @@ The format is based on Keep a Changelog and this project adheres to Semantic Ver
 ### Added
 - Add enlarged entity preview modal when clicking the entity preview in the mob tracker GUI.
 
-## Fixed
+### Fixed
 - Prevent the Ender Dragon corruption fix from interfering with real dragon fights (which, in turn, reverted the fix... oh well).
 - Properly fix the drop simulation not working in multiplayer.
 
@@ -187,7 +187,7 @@ The format is based on Keep a Changelog and this project adheres to Semantic Ver
   -> For that, a retry count config option has been added (default 100).
   -> Some mobs may still have sparce or missing conditions due to inherent randomness in their spawning logic. Refreshing the selection or increasing the retry count may help.
 
-## Changed
+### Changed
 - Single biome spawn condition now shows the biome name instead of count.
 
 
