@@ -8,6 +8,11 @@ The format is based on Keep a Changelog and this project adheres to Semantic Ver
 - Semantic Versioning: https://semver.org/spec/v2.0.0.html
 
 
+## [1.5.1] - 2026-08-28
+### Fixed
+- Fix invalid JEI reloading after dumping loot tables.
+
+
 ## [1.5.0] - 2026-08-26
 ### Added
 - Register the complete loot tables of every mob into JEI, via a static drops file. This file needs to be generated first, using the `/smtlootdump` command, which will create a zipped JSON file containing all the loot tables.

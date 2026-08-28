@@ -9,6 +9,8 @@ import java.util.Map;
 
 import javax.annotation.Nonnull;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
@@ -16,6 +18,7 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.client.IClientCommand;
@@ -45,7 +48,7 @@ public class CommandLootDump extends CommandBase implements IClientCommand {
     @Override
     @Nonnull
     public String getUsage(@Nonnull ICommandSender sender) {
-        return "/smtlootdump [simulationCount]";
+        return I18n.format("command.supermobtracker.lootdump.usage");
     }
 
     @Override
@@ -75,13 +78,12 @@ public class CommandLootDump extends CommandBase implements IClientCommand {
             : ModConfig.clientDropSimulationCount;
 
         if (DropSimulator.isMultiplayer()) {
-            sendMessage(sender, TextFormatting.RED,
-                "Loot dumping requires an integrated server because the JEI category reads the local dump file.");
+            sendMessage(sender, TextFormatting.RED, "command.supermobtracker.lootdump.remote_server");
             return;
         }
 
-        sendMessage(sender, TextFormatting.YELLOW,
-            "Dumping loot for all available mobs (" + simulationCount + " simulated kills each)...");
+        sendMessage(sender, TextFormatting.YELLOW, "command.supermobtracker.lootdump.start",
+            simulationCount);
         new Thread(() -> runDump(sender, simulationCount), "SMT-LootDump").start();
     }
 
@@ -101,8 +103,8 @@ public class CommandLootDump extends CommandBase implements IClientCommand {
             for (int index = 0; index < entityIds.size(); index++) {
                 ResourceLocation entityId = entityIds.get(index);
                 if ((index + 1) % 50 == 0) {
-                    sendMessage(sender, TextFormatting.YELLOW,
-                        "Loot dump progress: " + (index + 1) + "/" + entityIds.size() + " mobs simulated...");
+                    sendMessage(sender, TextFormatting.YELLOW, "command.supermobtracker.lootdump.progress",
+                        index + 1, entityIds.size());
                 }
 
                 try {
@@ -119,26 +121,38 @@ public class CommandLootDump extends CommandBase implements IClientCommand {
             }
 
             DumpWriteResult writeResult = LootDump.write(results, simulationCount);
-            if (Loader.isModLoaded("jei")) JEIIntegration.refreshMobLootRecipes();
-
-            sendMessage(sender, TextFormatting.GREEN,
-                "Loot dump complete: " + writeResult.mobCount + " mobs, " + writeResult.uniqueItemCount
-                    + " unique items, " + writeResult.dropTypeCount + " drop variants.");
-            if (failedCount > 0) {
-                sendMessage(sender, TextFormatting.YELLOW,
-                    "Skipped " + failedCount + " mobs whose loot could not be simulated.");
+            if (Loader.isModLoaded("jei")) {
+                Minecraft.getMinecraft().addScheduledTask(JEIIntegration::refreshMobLootRecipes);
             }
-            sendMessage(sender, TextFormatting.AQUA,
-                "JEI loot data saved to: " + writeResult.file.getAbsolutePath());
+
+            sendMessage(sender, TextFormatting.GREEN, "command.supermobtracker.lootdump.complete",
+                writeResult.mobCount, writeResult.uniqueItemCount, writeResult.dropTypeCount);
+
+            if (failedCount > 0) {
+                sendMessage(sender, TextFormatting.YELLOW, "command.supermobtracker.lootdump.skipped",
+                    failedCount);
+            }
+
+            sendMessage(sender, TextFormatting.AQUA, "command.supermobtracker.lootdump.saved",
+                writeResult.file.getAbsolutePath());
         } catch (Exception error) {
             SuperMobTracker.LOGGER.error("Failed to write mob loot dump", error);
-            sendMessage(sender, TextFormatting.RED, "Failed to write loot dump: " + error.getMessage());
+            sendMessage(sender, TextFormatting.RED, "command.supermobtracker.lootdump.failed",
+                error.getMessage());
         } finally {
             DropSimulator.clearProfileCache();
         }
     }
 
-    private static void sendMessage(ICommandSender sender, TextFormatting color, String message) {
-        sender.sendMessage(new TextComponentString(color + "[SMT] " + message));
+    private static void sendMessage(ICommandSender sender, TextFormatting color, String translationKey,
+            Object... parameters) {
+        Minecraft.getMinecraft().addScheduledTask(() -> {
+            TextComponentTranslation text = new TextComponentTranslation(translationKey, parameters);
+            text.getStyle().setColor(color);
+
+            TextComponentString prefix = new TextComponentString("[SMT] ");
+            prefix.getStyle().setColor(color);
+            sender.sendMessage(prefix.appendSibling(text));
+        });
     }
 }

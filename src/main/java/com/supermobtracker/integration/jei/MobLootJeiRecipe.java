@@ -338,8 +338,7 @@ public class MobLootJeiRecipe implements IRecipeWrapper {
         if (entry == null) return;
 
         tooltip.add("");
-        tooltip.add(TextFormatting.GRAY + I18n.format("jei.supermobtracker.loot.chance",
-            entry.getPercent()));
+        tooltip.add(I18n.format("jei.supermobtracker.loot.chance", entry.getPercent()));
     }
 
     @Nullable

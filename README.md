@@ -9,7 +9,7 @@ A client-side Minecraft 1.12.2 mod that lets you select mobs to view spawn condi
 - Click on the biomes list to copy biome names to clipboard.
 - Support for Just Enough Resources, custom drops viewer, and full drops tables integrated with JEI.
   - Custom drops viewer cannot be used without server-side installation (if you play singleplayer, you can ignore this). However, the JEI integration of drops tables will work without server-side installation, as long as you have the loot dump file in config.
-  - The custom viewer can use mouse or keys to open JEI: U/Left-click for uses, R/Right-click for recipes.
+  - The custom viewer can use mouse or keys to open JEI: R/Left-click for recipes, U/Right-click for uses.
 
 
 ### Configs
@@ -62,22 +62,24 @@ See [`docs/spawn_hints.example.json`](https://github.com/Aedial/SuperMobTracker/
 
 ## FAQ
 ### Do I need to install this on a server?
-You do not need to, unless you want to use the custom loot tables viewer. Most of the time, JER should be sufficient for loot tables viewing. The mod will still work fine without server-side installation.
+You do not need to, unless you want to use the custom in-GUI loot tables viewer. Most of the time, the JER/JEI integration should be sufficient for loot tables viewing (although JER can be wildly inaccurate at times, due to not simulating drops). The mod will still work fine without server-side installation.
+
+The loot tables built with /smtlootdump are about the same as the custom in-GUI loot tables, meaning you can completely ditch the server-side if the file has been generated.
 
 ### How is the mobs list filtered?
 The filter box matches both localized and unlocalized mob names. This means you can type the mod name, the name in your selected language, or the default English name.
 
-### The spawn conditions seem off, why?
+### The spawn conditions seem off
 Many mobs have inherently random spawn conditions that may not be fully captured by the analysis. Increasing the `spawnCheckRetries` config can help, although such mobs should be fairly rare. You can always hit the [Retry] button to re-evaluate the spawn conditions on failure.
 
 If the mob doesn't use normal biome spawn tables, add an external spawn hint instead of increasing retries. The GUI will then show the configured spawn source explicitly.
 
-### Some biomes/dimensions/blocks show up as raw registry names, why?
-Some mods do not provide proper localization keys for their biomes/dimensions//blocks. In this case, your modpack should provide a `lang` file with the appropriate keys to get proper names. Considering a raw name of `<modid>:<biome_name>`, the localization key format is `biome.<modid>.<biome_name>.path` for biomes, `dimension.<modid>.<dimension_name>.path` for dimensions, and `tile.<modid>.<block_name>.name` for blocks. I will not include other-mods-specific localization in the mod itself.
+### Some biomes/dimensions/blocks show up as raw registry names
+Some mods do not provide proper localization keys for their biomes/dimensions/blocks. In this case, your modpack should provide a `lang` file with the appropriate keys to get proper names. Considering a raw name of `<modid>:<biome_name>`, the localization key format is `biome.<modid>.<biome_name>.path` for biomes, `dimension.<modid>.<dimension_name>.path` for dimensions, and `tile.<modid>.<block_name>.name` for blocks. I will not include other-mods-specific localization in the mod itself.
 
 Of course, if localization for these exist, it is a bug and should be reported.
 
-### Some drops are missing or incorrect, why?
+### Some drops are missing or incorrect
 The drop simulation system uses a fake player and initializes the entity in a minimal fake world. However, some mobs may require a real player (e.g. Corail Tombstone) or get their loot table initialized in a special way that the simulation cannot replicate. In these cases, some drops may be missing or incorrect.
 
 On top of that, due to statistical randomness in loot tables, most drops will have some variance unless they are guaranteed drops. Increasing the `dropSimulationCount` config can help reduce variance, but some randomness will always remain. If a drop is very rare, it may not show up at all in the simulation.
@@ -85,7 +87,7 @@ On top of that, due to statistical randomness in loot tables, most drops will ha
 ## Commands
 
 ### /smtlootdump
-Dumps all loot tables into a single zipped JSON file, in the `config/supermobtracker/` folder. This is required for the JEI integration of loot tables to work, and will need to be re-run whenever loot tables change (e.g., after adding/removing mods or changing mod configs). Of course, an un-updated loot dump will not break anything, but the loot information may be outdated.
+Dumps all loot tables into a single zipped JSON file, in the `config/supermobtracker/` folder. This is required for the JEI integration of loot tables to work, and will need to be re-run whenever loot tables change (e.g., after adding/removing mods or changing mod configs). Of course, an un-updated loot dump will not break anything, but the loot information may be outdated. You must be in a single-player/LAN world to run this command, as it needs to write the loot dump file on the client, while simulating the drops on server-side.
 
 You may provide the number of iterations to simulate for each loot table, which will be used to estimate drop chances. The default uses the `dropSimulationCount` config value.
 

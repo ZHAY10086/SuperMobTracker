@@ -4,7 +4,7 @@ key.supermobtracker.open=Open Mob Tracker
 key.categories.supermobtracker=Super Mob Tracker
 supermobtracker.config.title=Super Mob Tracker Configuration
 
-# Config names (displayed in config GUI)
+## Config names (displayed in config GUI)
 config.supermobtracker.client.enableTracking=Enable Tracking
 config.supermobtracker.client.detectionRange=Detection Range
 config.supermobtracker.client.useModelXRay=Use Model X-Ray
@@ -25,7 +25,7 @@ config.supermobtracker.client.jeiMobLootRows=JEI Mob Loot Rows
 config.supermobtracker.client.unstableSimulationEntities=Unstable Simulation Entities
 config.supermobtracker.client.shouldRenderEntities=Should Render Entities
 
-# Config descriptions
+## Config descriptions
 config.supermobtracker.client=Client
 config.supermobtracker.client.enableTracking.tooltip=Enable tracking of mobs (requires Minecraft restart).
 config.supermobtracker.client.detectionRange.tooltip=Range in blocks to detect tracked mobs for the x-ray or glow highlight effect.
@@ -47,7 +47,42 @@ config.supermobtracker.client.jeiMobLootRows.tooltip=Number of loot rows shown p
 config.supermobtracker.client.unstableSimulationEntities.tooltip=Entity IDs that corrupt global state during drop simulation and should be excluded from simulation. They can be identified by severe performance degradation for every entity after simulating their drops.
 config.supermobtracker.client.shouldRenderEntities.tooltip=Entity IDs that crash or spam errors when rendered. These entities will not render at all in the preview/gallery.
 
-# GUI Labels
+## Command: /smtlootdump
+command.supermobtracker.lootdump.usage=/smtlootdump [simulationCount]
+command.supermobtracker.lootdump.remote_server=Mob loot dumps can only run in single-player or on the LAN host, not on a remote server. It needs to write the loot data to a local file for JEI to read.
+command.supermobtracker.lootdump.start=Dumping loot for all available mobs (%s simulated kills each)...
+command.supermobtracker.lootdump.progress=Loot dump progress: %s/%s mobs simulated...
+command.supermobtracker.lootdump.complete=Loot dump complete: %s mobs, %s unique items, %s drop variants.
+command.supermobtracker.lootdump.skipped=Skipped %s mobs whose loot could not be simulated.
+command.supermobtracker.lootdump.saved=JEI loot data saved to: %s
+command.supermobtracker.lootdump.failed=Failed to write loot dump: %s
+
+## Command: /smtanalyze
+command.supermobtracker.analyze.usage=/smtanalyze [mobs|loot|dimension] [samples] [simulationCount|extendedCount] [numGrids]
+command.supermobtracker.analyze.unknown=Unknown subcommand: %s
+command.supermobtracker.analyze.start=Starting full analysis (this may take a while)...
+command.supermobtracker.analyze.mobs.start=Analyzing all mobs (%s samples)...
+command.supermobtracker.analyze.mobs.progress=Progress: %s/%s mobs analyzed...
+command.supermobtracker.analyze.mobs.failed=Mob analysis failed: %s
+command.supermobtracker.analyze.mobs.complete=Mob analysis complete! Time: %s
+command.supermobtracker.analyze.mobs.summary=Successful: %s, Failed: %s, Sparse: %s, No dimension: %s, Crashed: %s, No biomes: %s
+command.supermobtracker.analyze.loot.request=Requesting loot analysis from server (%s samples, %s simulations)...
+command.supermobtracker.analyze.loot.request_default=Requesting loot analysis from server...
+command.supermobtracker.analyze.loot.start=Analyzing loot drops (%s samples, %s simulations)...
+command.supermobtracker.analyze.loot.progress=Loot progress: %s/%s mobs analyzed...
+command.supermobtracker.analyze.loot.failed=Loot analysis failed: %s
+command.supermobtracker.analyze.loot.complete=Loot analysis complete! Time: %s
+command.supermobtracker.analyze.loot.summary=Successful: %s, No drops: %s, Invalid: %s, Construction failed: %s, Crashed: %s
+command.supermobtracker.analyze.dimension.start=Benchmarking dimension mapping (%s samples, extended=%s, grids=%s)...
+command.supermobtracker.analyze.dimension.progress=Sample %s/%s complete: %s
+command.supermobtracker.analyze.dimension.failed=Dimension benchmark failed: %s
+command.supermobtracker.analyze.dimension.complete=Dimension benchmark complete! Time: %s
+command.supermobtracker.analyze.output.failed=Failed to write output file: %s
+command.supermobtracker.analyze.report.failed=Failed to write %s: %s
+command.supermobtracker.analyze.complete=All analyses complete! Total time: %s
+command.supermobtracker.analyze.saved=Results saved to: %s
+
+## GUI Labels
 gui.supermobtracker.i18nIDs.on=IDs: Localized
 gui.supermobtracker.i18nIDs.off=IDs: Raw
 
@@ -61,7 +96,7 @@ gui.mobtracker.analysisCrashedHint=An error occurred while analyzing spawn condi
 gui.mobtracker.noSpawnConditions=Could not determine spawn conditions. This may be due to unhandled spawn requirements or randomness in the spawn check. Try clicking Retry.
 gui.mobtracker.retryButton=[Retry]
 
-# Entity Info
+## Entity Info
 gui.mobtracker.entityName=Name: %s
 gui.mobtracker.entityId=ID: %s
 gui.mobtracker.entitySize=Size: %s x %s x %s
@@ -72,10 +107,10 @@ gui.mobtracker.lootJeiButton=[JEI]
 gui.mobtracker.blacklisted=This entity is blacklisted
 gui.mobtracker.whitelisted=This entity is not whitelisted
 
-# JEI Mob Loot
+## JEI Mob Loot
 jei.category.supermobtracker.mob_loot=Mob Loot
 jei.supermobtracker.loot.missing=Loot dump entry is unavailable
-jei.supermobtracker.loot.chance=~%s%% average drop chance
+jei.supermobtracker.loot.chance=§7~%s%% average drop chance
 jei.supermobtracker.loot.page=%d/%d
 jei.supermobtracker.loot.button.open=Open
 jei.supermobtracker.loot.button.tracker=Open Super Mob Tracker
@@ -83,7 +118,7 @@ jei.supermobtracker.loot.button.previous=Previous loot page
 jei.supermobtracker.loot.button.next=Next loot page
 item.supermobtracker.jei_anchor.name=JEI Anchor
 
-# Drops Window
+## Drops Window
 gui.mobtracker.drops.title=Drops: %s
 gui.mobtracker.drops.noSimulation=No simulation available
 gui.mobtracker.drops.simulating=Simulating kills... (%d/%d)
@@ -102,7 +137,7 @@ gui.mobtracker.drops.worldAccessFailed=Could not access world
 gui.mobtracker.drops.worldCreationFailed=Failed to create simulation world
 gui.mobtracker.drops.invalidEntity=Invalid entity
 
-# Spawn Conditions
+## Spawn Conditions
 gui.mobtracker.spawnConditions=Spawn Conditions:
 gui.mobtracker.lightLevels=Light: %s
 gui.mobtracker.yPos=Y Level: %s
@@ -144,7 +179,7 @@ gui.mobtracker.dimension=Dimension: %s
 gui.mobtracker.dimension.unknown.tooltip.scanning=Could not determine dimension: the entity's native biomes have not been found so far in scans. May appear later, once scans finish.
 gui.mobtracker.dimension.unknown.tooltip.complete=Could not determine dimension: the entity's native biomes were not found in any dimension scans.
 
-# Vanilla Dimensions
+## Dimensions
 dimension.overworld=Overworld
 dimension.the_nether=The Nether
 dimension.the_end=The End
@@ -157,21 +192,21 @@ dimension.divinerpg.iceika=Iceika
 dimension.divinerpg.arcana=Arcana
 dimension.divinerpg.vethea=Vethea
 
-# Biomes
+## Biomes
 gui.mobtracker.biomes=Biomes: %s
 gui.mobtracker.biomes.none=Biomes: None
 gui.mobtracker.biomes.unknown=Biomes: Unknown
 gui.mobtracker.biomes.any=Biomes: Any
 gui.mobtracker.biomesCopied=Biomes for %s copied to clipboard.
 
-# Misc
+## Misc
 gui.mobtracker.hintsHeader=Notes:
 gui.mobtracker.any=Any
 gui.mobtracker.unknown=Unknown
 gui.mobtracker.clickToEnlarge=Click to enlarge
 gui.mobtracker.closeModal=Click outside or press Escape to close, click Space to toggle rotation
 
-# Gallery View
+## Gallery View
 gui.mobtracker.gallery.button=Gallery
 gui.mobtracker.gallery.title=Entity Gallery
 gui.mobtracker.gallery.clickToSelect=Click to select
@@ -179,7 +214,7 @@ gui.mobtracker.gallery.escToExit=Esc to exit
 gui.mobtracker.gallery.spaceToStopRotation=Space to stop rotation
 gui.mobtracker.gallery.scrollInfo=Row %s of %s (%s visible)
 
-# Attributes
+## Attributes
 gui.mobtracker.attribute.boss=Boss
 gui.mobtracker.attribute.cannotDespawn=Persistent
 gui.mobtracker.attribute.passive=Passive
@@ -189,7 +224,7 @@ gui.mobtracker.attribute.aquatic=Aquatic
 gui.mobtracker.attribute.flying=Flying
 gui.mobtracker.attribute.tameable=Tameable
 
-# Hints
+## Hints
 gui.mobtracker.hint.light=May require a specific light level.
 gui.mobtracker.hint.ground=May require a specific ground block.
 gui.mobtracker.hint.biome=May require a specific biome.
@@ -219,7 +254,7 @@ gui.mobtracker.summon.on=on %s.
 gui.mobtracker.summon.entity=Left-click or right-click to open this mob in the tracker
 gui.mobtracker.summon.jei=Left-click for recipes, right-click for uses in JEI
 
-# HUD Position Selector
+## HUD Position Selector
 gui.supermobtracker.hudPosition.top_left=Top Left
 gui.supermobtracker.hudPosition.top_center=Top Center
 gui.supermobtracker.hudPosition.top_right=Top Right

@@ -16,6 +16,7 @@ import java.util.Map;
 import javax.annotation.Nonnull;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
@@ -25,6 +26,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.client.IClientCommand;
 import net.minecraftforge.fml.common.registry.EntityEntry;
@@ -63,7 +65,7 @@ public class CommandAnalyze extends CommandBase implements IClientCommand {
     @Override
     @Nonnull
     public String getUsage(@Nonnull ICommandSender sender) {
-        return "/smtanalyze [mobs|loot|dimension] [samples] [simulationCount|extendedCount] [numGrids]";
+        return I18n.format("command.supermobtracker.analyze.usage");
     }
 
     @Override
@@ -90,7 +92,7 @@ public class CommandAnalyze extends CommandBase implements IClientCommand {
             throws CommandException {
         if (args.length == 0) {
             // Run all analyses with default parameters
-            sendMessage(sender, TextFormatting.YELLOW, "Starting full analysis (this may take a while)...");
+            sendMessage(sender, TextFormatting.YELLOW, "command.supermobtracker.analyze.start");
             runAllAnalyses(sender, DEFAULT_SAMPLES, BiomeDimensionMapper.getDefaultExtendedCount(),
                 BiomeDimensionMapper.getDefaultNumGrids());
 
@@ -102,7 +104,9 @@ public class CommandAnalyze extends CommandBase implements IClientCommand {
 
         switch (subCommand) {
             case "mobs":
-                sendMessage(sender, TextFormatting.YELLOW, "Analyzing all mobs (" + samples + " samples)...");
+                sendMessage(sender, TextFormatting.YELLOW, "command.supermobtracker.analyze.mobs.start",
+                    samples);
+
                 new Thread(() -> runMobAnalysis(sender, samples), "SMT-MobAnalysis").start();
                 break;
 
@@ -111,10 +115,14 @@ public class CommandAnalyze extends CommandBase implements IClientCommand {
 
                 // In multiplayer, delegate to server via network packet
                 if (DropSimulator.isMultiplayer()) {
-                    sendMessage(sender, TextFormatting.YELLOW, "Requesting loot analysis from server (" + samples + " samples, " + simulationCount + " simulations)...");
+                    sendMessage(sender, TextFormatting.YELLOW, "command.supermobtracker.analyze.loot.request",
+                        samples, simulationCount);
+
                     NetworkHandler.INSTANCE.sendToServer(new PacketRequestLootAnalysis(samples, simulationCount));
                 } else {
-                    sendMessage(sender, TextFormatting.YELLOW, "Analyzing loot drops (" + samples + " samples, " + simulationCount + " simulations)...");
+                    sendMessage(sender, TextFormatting.YELLOW, "command.supermobtracker.analyze.loot.start",
+                        samples, simulationCount);
+
                     new Thread(() -> runLootAnalysis(sender, samples, simulationCount), "SMT-LootAnalysis").start();
                 }
                 break;
@@ -122,12 +130,14 @@ public class CommandAnalyze extends CommandBase implements IClientCommand {
             case "dimension":
                 int extendedCount = args.length > 2 ? parseInt(args[2], 100, 100000) : BiomeDimensionMapper.getDefaultExtendedCount();
                 int numGrids = args.length > 3 ? parseInt(args[3], 1, 64) : BiomeDimensionMapper.getDefaultNumGrids();
-                sendMessage(sender, TextFormatting.YELLOW, "Benchmarking dimension mapping (" + samples + " samples, extended=" + extendedCount + ", grids=" + numGrids + ")...");
+                sendMessage(sender, TextFormatting.YELLOW, "command.supermobtracker.analyze.dimension.start",
+                    samples, extendedCount, numGrids);
+
                 new Thread(() -> runDimensionBenchmark(sender, samples, extendedCount, numGrids), "SMT-DimensionBenchmark").start();
                 break;
 
             default:
-                throw new CommandException("Unknown subcommand: " + subCommand);
+                throw new CommandException(I18n.format("command.supermobtracker.analyze.unknown", subCommand));
         }
     }
 
@@ -139,20 +149,23 @@ public class CommandAnalyze extends CommandBase implements IClientCommand {
             try {
                 runDimensionBenchmark(sender, samples, extendedCount, numGrids);
             } catch (Exception e) {
-                sendMessage(sender, TextFormatting.RED, "Dimension benchmark failed: " + e.getMessage());
+                sendMessage(sender, TextFormatting.RED, "command.supermobtracker.analyze.dimension.failed",
+                    e.getMessage());
                 SuperMobTracker.LOGGER.error("Dimension benchmark failed", e);
             }
 
             try {
                 runMobAnalysis(sender, samples);
             } catch (Exception e) {
-                sendMessage(sender, TextFormatting.RED, "Mob analysis failed: " + e.getMessage());
+                sendMessage(sender, TextFormatting.RED, "command.supermobtracker.analyze.mobs.failed",
+                    e.getMessage());
                 SuperMobTracker.LOGGER.error("Mob analysis failed", e);
             }
 
             // In multiplayer, delegate loot analysis to server via network packet
             if (DropSimulator.isMultiplayer()) {
-                sendMessage(sender, TextFormatting.YELLOW, "Requesting loot analysis from server...");
+                sendMessage(sender, TextFormatting.YELLOW, "command.supermobtracker.analyze.loot.request_default");
+
                 Minecraft.getMinecraft().addScheduledTask(() -> {
                     NetworkHandler.INSTANCE.sendToServer(new PacketRequestLootAnalysis(samples, DEFAULT_LOOT_SIMULATION_COUNT));
                 });
@@ -160,13 +173,15 @@ public class CommandAnalyze extends CommandBase implements IClientCommand {
                 try {
                     runLootAnalysis(sender, samples, DEFAULT_LOOT_SIMULATION_COUNT);
                 } catch (Exception e) {
-                    sendMessage(sender, TextFormatting.RED, "Loot analysis failed: " + e.getMessage());
+                    sendMessage(sender, TextFormatting.RED, "command.supermobtracker.analyze.loot.failed",
+                        e.getMessage());
                     SuperMobTracker.LOGGER.error("Loot analysis failed", e);
                 }
             }
 
             long totalElapsed = System.nanoTime() - totalStart;
-            sendMessage(sender, TextFormatting.GREEN, "All analyses complete! Total time: " + formatDuration(totalElapsed));
+            sendMessage(sender, TextFormatting.GREEN, "command.supermobtracker.analyze.complete",
+                formatDuration(totalElapsed));
         }, "SMT-AllAnalyses").start();
     }
 
@@ -204,7 +219,9 @@ public class CommandAnalyze extends CommandBase implements IClientCommand {
 
         for (ResourceLocation entityId : entityIds) {
             current++;
-            if (current % 50 == 0) sendProgress(sender, "Progress: " + current + "/" + total + " mobs analyzed...");
+            if (current % 50 == 0) {
+                sendProgress(sender, "command.supermobtracker.analyze.mobs.progress", current, total);
+            }
 
             List<Long> timings = new ArrayList<>();
             SpawnConditionAnalyzer.SpawnConditions result = null;
@@ -378,10 +395,12 @@ public class CommandAnalyze extends CommandBase implements IClientCommand {
 
         ConditionUtils.suppressProfiling(false);
         long elapsed = System.nanoTime() - startTime;
-        sendMessage(sender, TextFormatting.GREEN, "Mob analysis complete! Time: " + formatDuration(elapsed));
-        sendMessage(sender, TextFormatting.AQUA, "Successful: " + successfulMobs.size() + ", Failed: " + failedMobs.size() + 
-            ", Sparse: " + sparseMobs.size() + ", No dimension: " + noDimensionMobs.size() + ", Crashed: " + crashedMobs.size() + ", No biomes: " + noNativeBiomeMobs.size());
-        sendMessage(sender, TextFormatting.AQUA, "Results saved to: " + successFile.getParent());
+        sendMessage(sender, TextFormatting.GREEN, "command.supermobtracker.analyze.mobs.complete",
+            formatDuration(elapsed));
+        sendMessage(sender, TextFormatting.AQUA, "command.supermobtracker.analyze.mobs.summary",
+            successfulMobs.size(), failedMobs.size(), sparseMobs.size(), noDimensionMobs.size(),
+            crashedMobs.size(), noNativeBiomeMobs.size());
+        sendMessage(sender, TextFormatting.AQUA, "command.supermobtracker.analyze.saved", successFile.getParent());
     }
 
     /**
@@ -412,7 +431,8 @@ public class CommandAnalyze extends CommandBase implements IClientCommand {
                 perDimensionTimings.computeIfAbsent(entry.getKey(), k -> new ArrayList<>()).add(entry.getValue());
             }
 
-            sendProgress(sender, "Sample " + (i + 1) + "/" + samples + " complete: " + formatDuration(sampleTime));
+            sendProgress(sender, "command.supermobtracker.analyze.dimension.progress",
+                i + 1, samples, formatDuration(sampleTime));
         }
 
         // Collect dimension data after final init
@@ -467,15 +487,18 @@ public class CommandAnalyze extends CommandBase implements IClientCommand {
                 );
             }
         } catch (IOException e) {
-            sendMessage(sender, TextFormatting.RED, "Failed to write output file: " + e.getMessage());
+            sendMessage(sender, TextFormatting.RED, "command.supermobtracker.analyze.output.failed",
+                e.getMessage());
             ConditionUtils.suppressProfiling(false);
             return;
         }
 
         ConditionUtils.suppressProfiling(false);
         long elapsed = System.nanoTime() - startTime;
-        sendMessage(sender, TextFormatting.GREEN, "Dimension benchmark complete! Time: " + formatDuration(elapsed));
-        sendMessage(sender, TextFormatting.AQUA, "Results saved to: " + outputFile.getAbsolutePath());
+        sendMessage(sender, TextFormatting.GREEN, "command.supermobtracker.analyze.dimension.complete",
+            formatDuration(elapsed));
+        sendMessage(sender, TextFormatting.AQUA, "command.supermobtracker.analyze.saved",
+            outputFile.getAbsolutePath());
     }
 
     /**
@@ -515,7 +538,9 @@ public class CommandAnalyze extends CommandBase implements IClientCommand {
 
         for (ResourceLocation entityId : entityIds) {
             current++;
-            if (current % 50 == 0) sendProgress(sender, "Loot progress: " + current + "/" + total + " mobs analyzed...");
+            if (current % 50 == 0) {
+                sendProgress(sender, "command.supermobtracker.analyze.loot.progress", current, total);
+            }
 
             List<Long> timings = new ArrayList<>();
             ProfileResult lastResult = null;
@@ -655,11 +680,13 @@ public class CommandAnalyze extends CommandBase implements IClientCommand {
         // Clear cached profiling resources to free memory
         DropSimulator.clearProfileCache();
 
-        sendMessage(sender, TextFormatting.GREEN, "Loot analysis complete! Time: " + formatDuration(elapsed));
-        sendMessage(sender, TextFormatting.AQUA, "Successful: " + successfulMobs.size() + ", No drops: " + noDropsMobs.size() + 
-            ", Invalid: " + invalidEntityMobs.size() + ", Construction failed: " + entityConstructionFailedMobs.size() + 
-            ", Crashed: " + crashedMobs.size());
-        sendMessage(sender, TextFormatting.AQUA, "Results saved to: " + successFile.getParent());
+        sendMessage(sender, TextFormatting.GREEN, "command.supermobtracker.analyze.loot.complete",
+            formatDuration(elapsed));
+        sendMessage(sender, TextFormatting.AQUA, "command.supermobtracker.analyze.loot.summary",
+            successfulMobs.size(), noDropsMobs.size(), invalidEntityMobs.size(),
+            entityConstructionFailedMobs.size(), crashedMobs.size());
+        sendMessage(sender, TextFormatting.AQUA, "command.supermobtracker.analyze.saved",
+            successFile.getParent());
     }
 
     // --- Helper classes ---
@@ -770,7 +797,8 @@ public class CommandAnalyze extends CommandBase implements IClientCommand {
 
             return file;
         } catch (IOException e) {
-            sendMessage(sender, TextFormatting.RED, "Failed to write " + filename + ": " + e.getMessage());
+            sendMessage(sender, TextFormatting.RED, "command.supermobtracker.analyze.report.failed",
+                filename, e.getMessage());
             return null;
         }
     }
@@ -784,16 +812,21 @@ public class CommandAnalyze extends CommandBase implements IClientCommand {
         return new File(dir, filename);
     }
 
-    private void sendMessage(ICommandSender sender, TextFormatting color, String message) {
+    private void sendMessage(ICommandSender sender, TextFormatting color, String translationKey,
+            Object... parameters) {
         // Send on main thread to avoid concurrency issues
         if (sender.getServer() != null) {
             sender.getServer().addScheduledTask(() -> {
-                TextComponentString text = new TextComponentString("[SMT] " + message);
+                TextComponentTranslation text = new TextComponentTranslation(translationKey, parameters);
                 text.getStyle().setColor(color);
-                sender.sendMessage(text);
+
+                TextComponentString prefix = new TextComponentString("[SMT] ");
+                prefix.getStyle().setColor(color);
+                sender.sendMessage(prefix.appendSibling(text));
             });
         } else {
-            SuperMobTracker.LOGGER.info(message);
+            Minecraft.getMinecraft().addScheduledTask(() ->
+                SuperMobTracker.LOGGER.info(I18n.format(translationKey, parameters)));
         }
     }
 
@@ -801,16 +834,20 @@ public class CommandAnalyze extends CommandBase implements IClientCommand {
      * Send a progress message to the player's action bar (above hotbar).
      * These disappear after a short time and don't clutter the chat.
      */
-    private void sendProgress(ICommandSender sender, String message) {
+    private void sendProgress(ICommandSender sender, String translationKey, Object... parameters) {
         if (sender.getServer() != null && sender instanceof EntityPlayerMP) {
             EntityPlayerMP player = (EntityPlayerMP) sender;
             sender.getServer().addScheduledTask(() -> {
-                TextComponentString text = new TextComponentString("[SMT] " + message);
+                TextComponentTranslation text = new TextComponentTranslation(translationKey, parameters);
                 text.getStyle().setColor(TextFormatting.DARK_GREEN);
-                player.sendStatusMessage(text, true);
+
+                TextComponentString prefix = new TextComponentString("[SMT] ");
+                prefix.getStyle().setColor(TextFormatting.DARK_GREEN);
+                player.sendStatusMessage(prefix.appendSibling(text), true);
             });
         } else {
-            SuperMobTracker.LOGGER.info(message);
+            Minecraft.getMinecraft().addScheduledTask(() ->
+                SuperMobTracker.LOGGER.info(I18n.format(translationKey, parameters)));
         }
     }
 
