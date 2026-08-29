@@ -4,7 +4,7 @@ key.supermobtracker.open=打开生物追踪器
 key.categories.supermobtracker=超级生物追踪器
 supermobtracker.config.title=超级生物追踪器设置
 
-# Config names (displayed in config GUI)
+## Config names (displayed in config GUI)
 config.supermobtracker.client.enableTracking=启用追踪
 config.supermobtracker.client.detectionRange=检测范围
 config.supermobtracker.client.useModelXRay=使用模型透视
@@ -25,7 +25,7 @@ config.supermobtracker.client.jeiMobLootRows=JEI生物战利品行数
 config.supermobtracker.client.unstableSimulationEntities=不稳定的模拟实体
 config.supermobtracker.client.shouldRenderEntities=不应渲染的实体
 
-# Config descriptions
+## Config descriptions
 config.supermobtracker.client=客户端
 config.supermobtracker.client.enableTracking.tooltip=启用生物追踪（需要重启客户端）。
 config.supermobtracker.client.detectionRange.tooltip=被追踪生物的检测范围（以格为单位），用于触发透视或发光高亮效果。
@@ -47,7 +47,42 @@ config.supermobtracker.client.jeiMobLootRows.tooltip=JEI生物战利品视图中
 config.supermobtracker.client.unstableSimulationEntities.tooltip=在掉落物模拟过程中会破坏全局状态，因此应从模拟中排除的实体ID。它们的特征是，在模拟其掉落物后，所有实体的模拟性能都会严重下降。
 config.supermobtracker.client.shouldRenderEntities.tooltip=渲染时会崩溃或大量报错的实体ID。这些实体在预览/画廊中完全不会渲染。
 
-# GUI Labels
+## Command: /smtlootdump
+command.supermobtracker.lootdump.usage=/smtlootdump [模拟次数]
+command.supermobtracker.lootdump.remote_server=生物战利品转储只能在单人游戏或局域网主机中运行，不能在远程服务器上执行。它需要将战利品数据写入本地文件供JEI读取。
+command.supermobtracker.lootdump.start=正在为所有可用生物转储战利品（每种生物模拟击杀%s次）……
+command.supermobtracker.lootdump.progress=战利品转储进度：已完成%s/%s种生物的模拟……
+command.supermobtracker.lootdump.complete=战利品转储完成：%s种生物，%s种独特物品，%s种掉落物变体。
+command.supermobtracker.lootdump.skipped=已跳过%s种无法模拟战利品的生物。
+command.supermobtracker.lootdump.saved=JEI战利品数据已保存至：%s
+command.supermobtracker.lootdump.failed=写入战利品转储失败：%s
+
+## Command: /smtanalyze
+command.supermobtracker.analyze.usage=/smtanalyze [mobs|loot|dimension] [样本数] [模拟次数|扩展计数] [网格数]
+command.supermobtracker.analyze.unknown=未知子命令：%s
+command.supermobtracker.analyze.start=正在开始完整分析（可能需要一段时间）……
+command.supermobtracker.analyze.mobs.start=正在分析所有生物（%s个样本）……
+command.supermobtracker.analyze.mobs.progress=进度：已完成%s/%s种生物的分析……
+command.supermobtracker.analyze.mobs.failed=生物分析失败：%s
+command.supermobtracker.analyze.mobs.complete=生物分析完成！耗时：%s
+command.supermobtracker.analyze.mobs.summary=成功：%s，失败：%s，零散：%s，无维度：%s，崩溃：%s，无生物群系：%s
+command.supermobtracker.analyze.loot.request=正在向服务器请求战利品分析（%s个样本，%s次模拟）……
+command.supermobtracker.analyze.loot.request_default=正在向服务器请求战利品分析……
+command.supermobtracker.analyze.loot.start=正在分析战利品掉落物（%s个样本，%s次模拟）……
+command.supermobtracker.analyze.loot.progress=战利品进度：已完成%s/%s种生物的分析……
+command.supermobtracker.analyze.loot.failed=战利品分析失败：%s
+command.supermobtracker.analyze.loot.complete=战利品分析完成！耗时：%s
+command.supermobtracker.analyze.loot.summary=成功：%s，无掉落物：%s，无效：%s，构造失败：%s，崩溃：%s
+command.supermobtracker.analyze.dimension.start=正在进行维度映射基准测试（%s个样本，扩展=%s，网格=%s）……
+command.supermobtracker.analyze.dimension.progress=样本：%s/%s，完成：%s
+command.supermobtracker.analyze.dimension.failed=维度基准测试失败：%s
+command.supermobtracker.analyze.dimension.complete=维度基准测试完成！耗时：%s
+command.supermobtracker.analyze.output.failed=写入输出文件失败：%s
+command.supermobtracker.analyze.report.failed=写入%s失败：%s
+command.supermobtracker.analyze.complete=所有分析完成！总耗时：%s
+command.supermobtracker.analyze.saved=结果已保存至：%s
+
+## GUI Labels
 gui.supermobtracker.i18nIDs.on=ID显示：本地化
 gui.supermobtracker.i18nIDs.off=ID显示：原始
 
@@ -61,7 +96,7 @@ gui.mobtracker.analysisCrashedHint=分析该实体的生成条件时发生错误
 gui.mobtracker.noSpawnConditions=无法确定生成条件。这可能是因为存在未处理的生成要求，或生成检查中的随机性。尝试点击重试按钮。
 gui.mobtracker.retryButton=[重试]
 
-# Entity Info
+## Entity Info
 gui.mobtracker.entityName=名称：%s
 gui.mobtracker.entityId=ID：%s
 gui.mobtracker.entitySize=尺寸：%s x %s x %s
@@ -72,7 +107,7 @@ gui.mobtracker.lootJeiButton=[JEI]
 gui.mobtracker.blacklisted=该实体已列入黑名单
 gui.mobtracker.whitelisted=该实体未列入白名单
 
-# JEI Mob Loot
+## JEI Mob Loot
 jei.category.supermobtracker.mob_loot=生物掉落物
 jei.supermobtracker.loot.missing=战利品转储条目不可用
 jei.supermobtracker.loot.chance=~%s%% 平均掉落概率
@@ -83,7 +118,7 @@ jei.supermobtracker.loot.button.previous=上一战利品页
 jei.supermobtracker.loot.button.next=下一战利品页
 item.supermobtracker.jei_anchor.name=JEI锚点
 
-# Drops Window
+## Drops Window
 gui.mobtracker.drops.title=掉落物：%s
 gui.mobtracker.drops.noSimulation=无可用模拟数据
 gui.mobtracker.drops.simulating=正在模拟击杀……（%d/%d）
@@ -102,7 +137,7 @@ gui.mobtracker.drops.worldAccessFailed=无法访问世界
 gui.mobtracker.drops.worldCreationFailed=创建模拟世界失败
 gui.mobtracker.drops.invalidEntity=无效实体
 
-# Spawn Conditions
+## Spawn Conditions
 gui.mobtracker.spawnConditions=生成条件：
 gui.mobtracker.lightLevels=亮度：%s
 gui.mobtracker.yPos=Y轴坐标：%s
@@ -144,7 +179,7 @@ gui.mobtracker.dimension=维度：%s
 gui.mobtracker.dimension.unknown.tooltip.scanning=无法确定维度：在已扫描区域中尚未发现该实体的原生生物群系。扫描完成后可能出现。
 gui.mobtracker.dimension.unknown.tooltip.complete=无法确定维度：在所有维度扫描中均未发现该实体的原生生物群系。
 
-# Vanilla Dimensions
+## Vanilla Dimensions
 dimension.overworld=主世界
 dimension.the_nether=下界
 dimension.the_end=末地
@@ -157,21 +192,21 @@ dimension.divinerpg.iceika=冰晶雪原
 dimension.divinerpg.arcana=秘界
 dimension.divinerpg.vethea=梦魇世界
 
-# Biomes
+## Biomes
 gui.mobtracker.biomes=生物群系：%s
 gui.mobtracker.biomes.none=生物群系：无
 gui.mobtracker.biomes.unknown=生物群系：未知
 gui.mobtracker.biomes.any=生物群系：任意
 gui.mobtracker.biomesCopied=%s的生物群系已复制到剪贴板。
 
-# Misc
+## Misc
 gui.mobtracker.hintsHeader=备注：
 gui.mobtracker.any=任意
 gui.mobtracker.unknown=未知
 gui.mobtracker.clickToEnlarge=点击放大
 gui.mobtracker.closeModal=点击外部或按Esc关闭，按空格键切换实体旋转
 
-# Gallery View
+## Gallery View
 gui.mobtracker.gallery.button=画廊
 gui.mobtracker.gallery.title=实体画廊
 gui.mobtracker.gallery.clickToSelect=点击选择
@@ -179,7 +214,7 @@ gui.mobtracker.gallery.escToExit=按Esc退出
 gui.mobtracker.gallery.spaceToStopRotation=按空格键停止旋转
 gui.mobtracker.gallery.scrollInfo=第%s行，共%s行（显示%s个）
 
-# Attributes
+## Attributes
 gui.mobtracker.attribute.boss=Boss
 gui.mobtracker.attribute.cannotDespawn=持久存在
 gui.mobtracker.attribute.passive=被动
@@ -189,7 +224,7 @@ gui.mobtracker.attribute.aquatic=水生
 gui.mobtracker.attribute.flying=飞行
 gui.mobtracker.attribute.tameable=可驯服
 
-# Hints
+## Hints
 gui.mobtracker.hint.light=可能需要特定亮度等级。
 gui.mobtracker.hint.ground=可能需要特定地面方块。
 gui.mobtracker.hint.biome=可能需要特定生物群系。
@@ -219,7 +254,7 @@ gui.mobtracker.summon.on=使用目标：%s。
 gui.mobtracker.summon.entity=左键或右键点击可在追踪器中打开此生物
 gui.mobtracker.summon.jei=左键点击查看配方，右键点击查看用途
 
-# HUD Position Selector
+## HUD Position Selector
 gui.supermobtracker.hudPosition.top_left=顶部左侧
 gui.supermobtracker.hudPosition.top_center=顶部中心
 gui.supermobtracker.hudPosition.top_right=顶部右侧
