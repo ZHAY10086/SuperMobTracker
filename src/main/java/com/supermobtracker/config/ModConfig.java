@@ -53,7 +53,7 @@ public class ModConfig {
     @Config.Name("useModelXRay")
     @Config.LangKey(PREFIX + "useModelXRay")
     @Config.Comment("Render tracked mobs through walls with their normal model instead of using the vanilla glow outline.")
-    public static boolean clientUseModelXRay = true;
+    public static boolean clientUseModelXRay = false;
 
     @Config.Name("i18nNames")
     @Config.LangKey(PREFIX + "i18nNames")

@@ -259,9 +259,7 @@ public final class LootDump {
 
                 mobs.add(mob);
                 byId.put(mob.entityId, mob);
-                for (LootEntry drop : mob.drops) {
-                    DumpItemKey key = DumpItemKey.from(drop.stack);
-                    if (key == null) continue;
+                for (DumpItemKey key : mob.normalizedDropCounts.keySet()) {
                     List<MobLoot> itemMobs = byItem.get(key);
                     if (itemMobs == null) {
                         itemMobs = new ArrayList<>();
@@ -271,11 +269,16 @@ public final class LootDump {
                 }
             }
 
+            // Dump order *should* be sorted by entity ID, but we sort it again just in case
+            mobs.sort(Comparator.comparing(m -> m.entityId.toString()));
+
             cachedMobs = Collections.unmodifiableList(mobs);
             cachedById = Collections.unmodifiableMap(byId);
             Map<DumpItemKey, List<MobLoot>> immutableByItem = new LinkedHashMap<>();
             for (Map.Entry<DumpItemKey, List<MobLoot>> entry : byItem.entrySet()) {
-                immutableByItem.put(entry.getKey(), Collections.unmodifiableList(entry.getValue()));
+                List<MobLoot> mobsForItem = entry.getValue();
+                mobsForItem.sort((left, right) -> compareItemChance(entry.getKey(), left, right));
+                immutableByItem.put(entry.getKey(), Collections.unmodifiableList(mobsForItem));
             }
             cachedByItem = Collections.unmodifiableMap(immutableByItem);
 
@@ -387,16 +390,48 @@ public final class LootDump {
         }
     }
 
+    private static int compareItemChance(DumpItemKey key, MobLoot left, MobLoot right) {
+        int countCompare = Integer.compare(getCountForItem(right, key), getCountForItem(left, key));
+        if (countCompare != 0) return countCompare;
+
+        return left.entityId.toString().compareTo(right.entityId.toString());
+    }
+
+    private static int getCountForItem(MobLoot mob, DumpItemKey key) {
+        return mob.getNormalizedDropCount(key);
+    }
+
+    private static Map<DumpItemKey, Integer> buildNormalizedDropCounts(List<LootEntry> drops) {
+        Map<DumpItemKey, Integer> normalizedDropCounts = new LinkedHashMap<>();
+
+        for (LootEntry drop : drops) {
+            DumpItemKey key = DumpItemKey.from(drop.stack);
+            if (key == null) continue;
+
+            Integer totalCount = normalizedDropCounts.get(key);
+            normalizedDropCounts.put(key, (totalCount != null ? totalCount : 0) + drop.totalCount);
+        }
+
+        return normalizedDropCounts;
+    }
+
     /**
      * A single mob record for the JEI recipe wrapper.
      */
     public static final class MobLoot {
         public final ResourceLocation entityId;
         public final List<LootEntry> drops;
+        private final Map<DumpItemKey, Integer> normalizedDropCounts;
 
         private MobLoot(ResourceLocation entityId, List<LootEntry> drops) {
             this.entityId = entityId;
             this.drops = Collections.unmodifiableList(drops);
+            this.normalizedDropCounts = Collections.unmodifiableMap(buildNormalizedDropCounts(drops));
+        }
+
+        private int getNormalizedDropCount(DumpItemKey key) {
+            Integer totalCount = normalizedDropCounts.get(key);
+            return totalCount != null ? totalCount : 0;
         }
     }
 

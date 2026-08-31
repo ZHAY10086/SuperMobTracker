@@ -8,6 +8,12 @@ The format is based on Keep a Changelog and this project adheres to Semantic Ver
 - Semantic Versioning: https://semver.org/spec/v2.0.0.html
 
 
+## [1.5.2] - 2026-08-31
+### Changed
+- Sort dumped JEI loot by drop chance when selecting an item in JEI, instead of entity ID. This is usually more useful, to get an idea of which mobs to farm for a specific item. Full mobs list is still sorted by entity ID, and other ways only target a single mob, so they are unaffected.
+- Revert default config for useModelXRay, as it tends to blend in with the background at higher distances, which is when it is most useful. It can still be enabled in the config if desired.
+
+
 ## [1.5.1] - 2026-08-28
 ### Fixed
 - Fix invalid JEI reloading after dumping loot tables.

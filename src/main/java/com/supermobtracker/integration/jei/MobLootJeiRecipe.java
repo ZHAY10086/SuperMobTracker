@@ -1,6 +1,5 @@
 package com.supermobtracker.integration.jei;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
@@ -19,7 +18,6 @@ import net.minecraft.entity.EntityList;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 import mezz.jei.api.gui.IDrawable;
@@ -103,12 +101,7 @@ public class MobLootJeiRecipe implements IRecipeWrapper {
 
     @Override
     public void getIngredients(@Nonnull IIngredients ingredients) {
-        MobLoot mob = LootDump.getMob(entityId);
-        if (mob == null || mob.drops.isEmpty()) return;
-
-        List<ItemStack> stacks = new ArrayList<>(mob.drops.size());
-        for (LootEntry entry : mob.drops) stacks.add(entry.stack.copy());
-        ingredients.setOutputs(VanillaTypes.ITEM, stacks);
+        ingredients.setInputs(VanillaTypes.ITEM, Collections.singletonList(createAnchorStack(entityId)));
     }
 
     void bindJeiLayout(IDrawable slotDrawable, IGuiItemStackGroup itemStacks) {

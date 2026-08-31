@@ -38,6 +38,12 @@ public class MobLootJeiRegistryPlugin implements IRecipeRegistryPlugin {
                 : Collections.emptyList();
         }
 
+        if (focus.getMode() == IFocus.Mode.OUTPUT) {
+            return LootDump.getMobsForItem(stack).isEmpty()
+                ? Collections.emptyList()
+                : Collections.singletonList(MobLootJeiCategory.UID);
+        }
+
         return Collections.emptyList();
     }
 
@@ -54,6 +60,8 @@ public class MobLootJeiRegistryPlugin implements IRecipeRegistryPlugin {
             ResourceLocation entityId = MobLootJeiRecipe.getAnchorEntityId(stack);
             return wrapOne(LootDump.getMob(entityId));
         }
+
+        if (focus.getMode() == IFocus.Mode.OUTPUT) return wrapAll(LootDump.getMobsForItem(stack));
 
         return Collections.emptyList();
     }
