@@ -33,6 +33,7 @@ import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 import com.supermobtracker.SuperMobTracker;
+import com.supermobtracker.config.ModConfig;
 import com.supermobtracker.drops.DropSimulator;
 import com.supermobtracker.drops.DropSimulator.ProfileResult;
 import com.supermobtracker.network.NetworkHandler;
@@ -190,6 +191,7 @@ public class CommandAnalyze extends CommandBase implements IClientCommand {
      * Separates results into:
      * - successful: spawn conditions determined
      * - failed: has native biomes but conditions couldn't be determined  
+     * - excluded: hidden from the tracker GUI and loot dumps by config
      * - noDimension: biomes couldn't be mapped to any dimension
      * - noNativeBiomes: doesn't spawn naturally (no biomes in spawn tables)
      * - crashed: threw an exception during analysis
@@ -201,6 +203,7 @@ public class CommandAnalyze extends CommandBase implements IClientCommand {
 
         List<MobPerformanceEntry> successfulMobs = new ArrayList<>();
         List<MobPerformanceEntry> failedMobs = new ArrayList<>();
+        List<MobPerformanceEntry> excludedMobs = new ArrayList<>();
         List<MobPerformanceEntry> sparseMobs = new ArrayList<>();
         List<MobPerformanceEntry> noDimensionMobs = new ArrayList<>();
         List<MobPerformanceEntry> noNativeBiomeMobs = new ArrayList<>();
@@ -248,23 +251,26 @@ public class CommandAnalyze extends CommandBase implements IClientCommand {
             }
 
             // Categorize the result
-            if (error != null) {
-                crashedMobs.add(new MobPerformanceEntry(entityId.toString(), timings, false, null, null, error));
+            String entity = entityId != null ? entityId.toString() : "?";
+            if (ModConfig.isGuiAndLootExcludedEntity(entity)) {
+                excludedMobs.add(new MobPerformanceEntry(entity, timings, false, null, null, null));
+            } else if (error != null) {
+                crashedMobs.add(new MobPerformanceEntry(entity, timings, false, null, null, error));
             } else if (!hasNativeBiomes) {
-                noNativeBiomeMobs.add(new MobPerformanceEntry(entityId.toString(), timings, false, null, null, null));
+                noNativeBiomeMobs.add(new MobPerformanceEntry(entity, timings, false, null, null, null));
             } else if (result == null) {
                 // Has biomes but result is null - shouldn't happen, but track it
-                failedMobs.add(new MobPerformanceEntry(entityId.toString(), timings, false, null, null, null));
+                failedMobs.add(new MobPerformanceEntry(entity, timings, false, null, null, null));
             } else if (result.dimension == null) {
                 // Has biomes but couldn't map to dimension
-                noDimensionMobs.add(new MobPerformanceEntry(entityId.toString(), timings, false, null, result.biomes, null));
+                noDimensionMobs.add(new MobPerformanceEntry(entity, timings, false, null, result.biomes, null));
             } else if (result.isSparse()) {
                 // Analysis returned multiple ranges (sparse) which indicates incomplete or ambiguous sampling
-                sparseMobs.add(new MobPerformanceEntry(entityId.toString(), timings, false, result.dimension, result.biomes, null));
+                sparseMobs.add(new MobPerformanceEntry(entity, timings, false, result.dimension, result.biomes, null));
             } else if (result.failed()) {
-                failedMobs.add(new MobPerformanceEntry(entityId.toString(), timings, false, result.dimension, result.biomes, null));
+                failedMobs.add(new MobPerformanceEntry(entity, timings, false, result.dimension, result.biomes, null));
             } else {
-                successfulMobs.add(new MobPerformanceEntry(entityId.toString(), timings, true, result.dimension, result.biomes, null));
+                successfulMobs.add(new MobPerformanceEntry(entity, timings, true, result.dimension, result.biomes, null));
             }
         }
 
@@ -272,6 +278,7 @@ public class CommandAnalyze extends CommandBase implements IClientCommand {
         Comparator<MobPerformanceEntry> byAverageTime = (a, b) -> Double.compare(b.getAverageTime(), a.getAverageTime());
         successfulMobs.sort(byAverageTime);
         failedMobs.sort(byAverageTime);
+        excludedMobs.sort(byAverageTime);
         sparseMobs.sort(byAverageTime);
         noDimensionMobs.sort(byAverageTime);
         noNativeBiomeMobs.sort(byAverageTime);
@@ -296,6 +303,24 @@ public class CommandAnalyze extends CommandBase implements IClientCommand {
         if (successFile == null) {
             ConditionUtils.suppressProfiling(false);
             return;
+        }
+
+        if (!excludedMobs.isEmpty()) {
+            writePerformanceReport(
+                "excluded_performance_" + samples + "samples_" + timestamp + ".txt",
+                "Excluded Mobs - Mob Analysis Report",
+                "These mobs are hidden from the tracker GUI and loot dumps by config.",
+                excludedMobs,
+                samples,
+                "Format: [Entity ID] - Avg: Xms, Worst: Xms, Best: Xms | Details",
+                (writer, entry) -> writer.printf("%s - Avg: %.2fms, Worst: %.2fms, Best: %.2fms%n",
+                    entry.entityId,
+                    entry.getAverageTime() / 1_000_000.0,
+                    entry.getWorstTime() / 1_000_000.0,
+                    entry.getBestTime() / 1_000_000.0
+                ),
+                sender
+            );
         }
 
         // Write failed mobs to file
@@ -398,7 +423,7 @@ public class CommandAnalyze extends CommandBase implements IClientCommand {
         sendMessage(sender, TextFormatting.GREEN, "command.supermobtracker.analyze.mobs.complete",
             formatDuration(elapsed));
         sendMessage(sender, TextFormatting.AQUA, "command.supermobtracker.analyze.mobs.summary",
-            successfulMobs.size(), failedMobs.size(), sparseMobs.size(), noDimensionMobs.size(),
+            successfulMobs.size(), failedMobs.size(), excludedMobs.size(), sparseMobs.size(), noDimensionMobs.size(),
             crashedMobs.size(), noNativeBiomeMobs.size());
         sendMessage(sender, TextFormatting.AQUA, "command.supermobtracker.analyze.saved", successFile.getParent());
     }
@@ -508,6 +533,7 @@ public class CommandAnalyze extends CommandBase implements IClientCommand {
      * Separates results into:
      * - successful: has drops
      * - noDrops: no drops (may not have a loot table or drops are conditional)
+     * - excluded: hidden from the tracker GUI and loot dumps by config
      * - invalidEntity: entity is not a valid living entity
      * - serverSideOnly: multiplayer or no loot table manager
      * - entityConstructionFailed: entity couldn't be constructed
@@ -520,6 +546,7 @@ public class CommandAnalyze extends CommandBase implements IClientCommand {
 
         List<LootPerformanceEntry> successfulMobs = new ArrayList<>();
         List<LootPerformanceEntry> noDropsMobs = new ArrayList<>();
+        List<LootPerformanceEntry> excludedMobs = new ArrayList<>();
         List<LootPerformanceEntry> invalidEntityMobs = new ArrayList<>();
         List<LootPerformanceEntry> serverSideOnlyMobs = new ArrayList<>();
         List<LootPerformanceEntry> entityConstructionFailedMobs = new ArrayList<>();
@@ -563,6 +590,11 @@ public class CommandAnalyze extends CommandBase implements IClientCommand {
             int dropCount = (lastResult.result != null && lastResult.result.drops != null) ? lastResult.result.drops.size() : 0;
             LootPerformanceEntry entry = new LootPerformanceEntry(entityId.toString(), timings, lastResult.status, dropCount, lastResult.error);
 
+            if (ModConfig.isGuiAndLootExcludedEntity(entityId.toString())) {
+                excludedMobs.add(entry);
+                continue;
+            }
+
             switch (lastResult.status) {
                 case SUCCESS:
                     successfulMobs.add(entry);
@@ -592,6 +624,7 @@ public class CommandAnalyze extends CommandBase implements IClientCommand {
         Comparator<LootPerformanceEntry> byAverageTime = (a, b) -> Double.compare(b.getAverageTime(), a.getAverageTime());
         successfulMobs.sort(byAverageTime);
         noDropsMobs.sort(byAverageTime);
+        excludedMobs.sort(byAverageTime);
         crashedMobs.sort(byAverageTime);
 
         // Write successful mobs to file
@@ -620,6 +653,21 @@ public class CommandAnalyze extends CommandBase implements IClientCommand {
                 "No Drops - Loot Analysis Report",
                 "These mobs have no loot drops (may not have a loot table or drops are conditional).",
                 noDropsMobs,
+                samples,
+                null,
+                (writer, entry) -> writer.println(entry.entityId),
+                sender
+            );
+        }
+
+        // Write excluded mobs to file
+        if (!excludedMobs.isEmpty()) {
+            excludedMobs.sort(Comparator.comparing(a -> a.entityId));
+            writePerformanceReport(
+                "loot_excluded_" + samples + "samples_" + simulationCount + "sims_" + timestamp + ".txt",
+                "Excluded Mobs - Loot Analysis Report",
+                "These mobs are hidden from the tracker GUI and loot dumps by config.",
+                excludedMobs,
                 samples,
                 null,
                 (writer, entry) -> writer.println(entry.entityId),
@@ -683,7 +731,7 @@ public class CommandAnalyze extends CommandBase implements IClientCommand {
         sendMessage(sender, TextFormatting.GREEN, "command.supermobtracker.analyze.loot.complete",
             formatDuration(elapsed));
         sendMessage(sender, TextFormatting.AQUA, "command.supermobtracker.analyze.loot.summary",
-            successfulMobs.size(), noDropsMobs.size(), invalidEntityMobs.size(),
+            successfulMobs.size(), noDropsMobs.size(), excludedMobs.size(), invalidEntityMobs.size(),
             entityConstructionFailedMobs.size(), crashedMobs.size());
         sendMessage(sender, TextFormatting.AQUA, "command.supermobtracker.analyze.saved",
             successFile.getParent());

@@ -303,6 +303,7 @@ public class GuiGalleryView {
 
         // Get all entities that have a valid instance (same logic as MobListWidget)
         List<ResourceLocation> ids = ForgeRegistries.ENTITIES.getKeys().stream()
+            .filter(id -> !ModConfig.isGuiAndLootExcludedEntity(id.toString()))
             .filter(id -> analyzer.getEntityInstance(id) != null)
             .collect(Collectors.toList());
 

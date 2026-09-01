@@ -89,10 +89,18 @@ public class CommandLootDump extends CommandBase implements IClientCommand {
 
     private void runDump(ICommandSender sender, int simulationCount) {
         List<ResourceLocation> entityIds = new ArrayList<>();
+        int excludedCount = 0;
+
         for (EntityEntry entry : ForgeRegistries.ENTITIES.getValuesCollection()) {
-            if (entry.getRegistryName() != null && EntityLiving.class.isAssignableFrom(entry.getEntityClass())) {
-                entityIds.add(entry.getRegistryName());
+            ResourceLocation entityId = entry.getRegistryName();
+            if (entityId == null) continue;
+            if (!EntityLiving.class.isAssignableFrom(entry.getEntityClass())) continue;
+            if (ModConfig.isGuiAndLootExcludedEntity(entityId.toString())) {
+                excludedCount++;
+                continue;
             }
+
+            entityIds.add(entityId);
         }
         entityIds.sort(Comparator.comparing(ResourceLocation::toString));
 
@@ -131,6 +139,11 @@ public class CommandLootDump extends CommandBase implements IClientCommand {
             if (failedCount > 0) {
                 sendMessage(sender, TextFormatting.YELLOW, "command.supermobtracker.lootdump.skipped",
                     failedCount);
+            }
+
+            if (excludedCount > 0) {
+                sendMessage(sender, TextFormatting.YELLOW, "command.supermobtracker.lootdump.excluded",
+                    excludedCount);
             }
 
             sendMessage(sender, TextFormatting.AQUA, "command.supermobtracker.lootdump.saved",

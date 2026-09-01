@@ -144,6 +144,11 @@ public class ModConfig {
     @Config.Comment("Entity IDs that crash or spam errors when rendered. These entities will not render at all in the preview or gallery.")
     public static String[] clientShouldRenderEntities = DEFAULT_SHOULD_RENDER_ENTITIES.clone();
 
+    @Config.Name("guiAndLootExcludedEntities")
+    @Config.LangKey(PREFIX + "guiAndLootExcludedEntities")
+    @Config.Comment("Entity IDs that should be hidden from the mob tracker GUI and loot dumps. Supports partial IDs (e.g., \"minecraft:\" or \"zomb\").")
+    public static String[] clientGuiAndLootExcludedEntities = new String[0];
+
     private static final List<String> hiddenConfigs = Arrays.asList(
         "i18nNames",
         "trackedEntityIds",
@@ -360,6 +365,22 @@ public class ModConfig {
         return matchesConfiguredId(clientShouldRenderEntities, id);
     }
 
+    public static List<String> getClientGuiAndLootExcludedEntities() {
+        return toMutableList(clientGuiAndLootExcludedEntities);
+    }
+
+    public static void setClientGuiAndLootExcludedEntities(Collection<String> ids) {
+        String[] newValue = normalizeStringCollection(ids);
+        if (Arrays.equals(clientGuiAndLootExcludedEntities, newValue)) return;
+
+        clientGuiAndLootExcludedEntities = newValue;
+        syncManagedConfig();
+    }
+
+    public static boolean isGuiAndLootExcludedEntity(String id) {
+        return matchesConfiguredId(clientGuiAndLootExcludedEntities, id);
+    }
+
     // Trim persisted string arrays after load so blank GUI entries do not turn the substring-based checks into match-all filters.
     private static boolean normalizeClientValues() {
         boolean changed = false;
@@ -409,6 +430,12 @@ public class ModConfig {
         String[] normalizedRenderEntities = normalizeStringArray(clientShouldRenderEntities);
         if (!Arrays.equals(clientShouldRenderEntities, normalizedRenderEntities)) {
             clientShouldRenderEntities = normalizedRenderEntities;
+            changed = true;
+        }
+
+        String[] normalizedGuiAndLootExcludedEntities = normalizeStringArray(clientGuiAndLootExcludedEntities);
+        if (!Arrays.equals(clientGuiAndLootExcludedEntities, normalizedGuiAndLootExcludedEntities)) {
+            clientGuiAndLootExcludedEntities = normalizedGuiAndLootExcludedEntities;
             changed = true;
         }
 

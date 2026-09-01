@@ -170,7 +170,8 @@ public class GuiMobTracker extends GuiScreen {
         }
 
         if (restoreId != null) {
-            if (analyzer.getEntityInstance(restoreId) != null) {
+            if (!ModConfig.isGuiAndLootExcludedEntity(restoreId.toString())
+                && analyzer.getEntityInstance(restoreId) != null) {
                 this.selected = restoreId;
 
                 // Reuse cached spawn conditions if the entity ID matches
@@ -193,6 +194,15 @@ public class GuiMobTracker extends GuiScreen {
     }
 
     public void selectEntity(ResourceLocation id) {
+        if (id == null || ModConfig.isGuiAndLootExcludedEntity(id.toString())) {
+            this.selected = null;
+            this.spawnConditions = null;
+            cachedEntityId = null;
+            cachedSpawnConditions = null;
+            ModConfig.setClientLastSelectedEntity("");
+            return;
+        }
+
         this.selected = id;
         this.spawnConditions = analyzer.analyze(id);
         cachedEntityId = id;
@@ -1162,10 +1172,16 @@ public class GuiMobTracker extends GuiScreen {
         }
 
         private void rebuildFiltered() {
+            if (tracker.getSelectedEntity() != null
+                && ModConfig.isGuiAndLootExcludedEntity(tracker.getSelectedEntity().toString())) {
+                tracker.selectEntity(null);
+            }
+
             String filterLower = this.filter.toLowerCase();
 
             // Filter by both raw ID and i18n name
             List<ResourceLocation> base = all.stream()
+                .filter(id -> !ModConfig.isGuiAndLootExcludedEntity(id.toString()))
                 .filter(id -> {
                     if (id.toString().toLowerCase().contains(filterLower)) return true;
 

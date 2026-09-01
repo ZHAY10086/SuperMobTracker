@@ -24,6 +24,7 @@ config.supermobtracker.client.dropSimulationCount=Drop Simulation Count
 config.supermobtracker.client.jeiMobLootRows=JEI Mob Loot Rows
 config.supermobtracker.client.unstableSimulationEntities=Unstable Simulation Entities
 config.supermobtracker.client.shouldRenderEntities=Should Render Entities
+config.supermobtracker.client.guiAndLootExcludedEntities=Excluded Entities
 
 ## Config descriptions
 config.supermobtracker.client=Client
@@ -46,6 +47,7 @@ config.supermobtracker.client.dropSimulationCount.tooltip=Number of simulated ki
 config.supermobtracker.client.jeiMobLootRows.tooltip=Number of loot rows shown per page in the JEI mob loot view. Requires restarting Minecraft to resize JEI recipes.
 config.supermobtracker.client.unstableSimulationEntities.tooltip=Entity IDs that corrupt global state during drop simulation and should be excluded from simulation. They can be identified by severe performance degradation for every entity after simulating their drops.
 config.supermobtracker.client.shouldRenderEntities.tooltip=Entity IDs that crash or spam errors when rendered. These entities will not render at all in the preview/gallery.
+config.supermobtracker.client.guiAndLootExcludedEntities.tooltip=Entity IDs that should be hidden from the mob tracker GUI and loot dumps. Supports partial IDs (e.g., "minecraft:" or "zomb").
 
 ## Command: /smtlootdump
 command.supermobtracker.lootdump.usage=/smtlootdump [simulationCount]
@@ -54,6 +56,7 @@ command.supermobtracker.lootdump.start=Dumping loot for all available mobs (%s s
 command.supermobtracker.lootdump.progress=Loot dump progress: %s/%s mobs simulated...
 command.supermobtracker.lootdump.complete=Loot dump complete: %s mobs, %s unique items, %s drop variants.
 command.supermobtracker.lootdump.skipped=Skipped %s mobs whose loot could not be simulated.
+command.supermobtracker.lootdump.excluded=Excluded %s mobs based on config.
 command.supermobtracker.lootdump.saved=JEI loot data saved to: %s
 command.supermobtracker.lootdump.failed=Failed to write loot dump: %s
 
@@ -65,14 +68,14 @@ command.supermobtracker.analyze.mobs.start=Analyzing all mobs (%s samples)...
 command.supermobtracker.analyze.mobs.progress=Progress: %s/%s mobs analyzed...
 command.supermobtracker.analyze.mobs.failed=Mob analysis failed: %s
 command.supermobtracker.analyze.mobs.complete=Mob analysis complete! Time: %s
-command.supermobtracker.analyze.mobs.summary=Successful: %s, Failed: %s, Sparse: %s, No dimension: %s, Crashed: %s, No biomes: %s
+command.supermobtracker.analyze.mobs.summary=Successful: %s, Failed: %s, Excluded: %s, Sparse: %s, No dimension: %s, Crashed: %s, No biomes: %s
 command.supermobtracker.analyze.loot.request=Requesting loot analysis from server (%s samples, %s simulations)...
 command.supermobtracker.analyze.loot.request_default=Requesting loot analysis from server...
 command.supermobtracker.analyze.loot.start=Analyzing loot drops (%s samples, %s simulations)...
 command.supermobtracker.analyze.loot.progress=Loot progress: %s/%s mobs analyzed...
 command.supermobtracker.analyze.loot.failed=Loot analysis failed: %s
 command.supermobtracker.analyze.loot.complete=Loot analysis complete! Time: %s
-command.supermobtracker.analyze.loot.summary=Successful: %s, No drops: %s, Invalid: %s, Construction failed: %s, Crashed: %s
+command.supermobtracker.analyze.loot.summary=Successful: %s, No drops: %s, Excluded: %s, Invalid: %s, Construction failed: %s, Crashed: %s
 command.supermobtracker.analyze.dimension.start=Benchmarking dimension mapping (%s samples, extended=%s, grids=%s)...
 command.supermobtracker.analyze.dimension.progress=Sample %s/%s complete: %s
 command.supermobtracker.analyze.dimension.failed=Dimension benchmark failed: %s

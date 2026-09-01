@@ -106,6 +106,8 @@ public final class LootDump {
         int dropTypeCount = 0;
 
         for (ResourceLocation entityId : entityIds) {
+            if (ModConfig.isGuiAndLootExcludedEntity(entityId.toString())) continue;
+
             DropSimulationResult result = results.get(entityId);
             if (result == null || result.drops == null || result.drops.isEmpty()) continue;
 
@@ -181,7 +183,7 @@ public final class LootDump {
      */
     public static List<MobLoot> getMobs() {
         reloadIfNeeded();
-        return cachedMobs;
+        return filterExcludedMobs(cachedMobs);
     }
 
     /**
@@ -189,7 +191,7 @@ public final class LootDump {
      */
     @Nullable
     public static MobLoot getMob(ResourceLocation entityId) {
-        if (entityId == null) return null;
+        if (entityId == null || ModConfig.isGuiAndLootExcludedEntity(entityId.toString())) return null;
 
         reloadIfNeeded();
         return cachedById.get(entityId);
@@ -206,7 +208,22 @@ public final class LootDump {
         DumpItemKey key = DumpItemKey.from(stack);
         if (key == null) return Collections.emptyList();
         List<MobLoot> matches = cachedByItem.get(key);
-        return matches != null ? matches : Collections.emptyList();
+        return filterExcludedMobs(matches);
+    }
+
+    private static List<MobLoot> filterExcludedMobs(@Nullable List<MobLoot> mobs) {
+        if (mobs == null || mobs.isEmpty()) return Collections.emptyList();
+
+        List<MobLoot> filtered = new ArrayList<>();
+        for (MobLoot mob : mobs) {
+            if (mob == null || ModConfig.isGuiAndLootExcludedEntity(mob.entityId.toString())) continue;
+
+            filtered.add(mob);
+        }
+
+        if (filtered.isEmpty()) return filtered;
+
+        return Collections.unmodifiableList(filtered);
     }
 
     /**
@@ -299,6 +316,8 @@ public final class LootDump {
         } catch (Exception ignored) {
             return null;
         }
+
+        if (ModConfig.isGuiAndLootExcludedEntity(entityId.toString())) return null;
 
         EntityEntry entityEntry = ForgeRegistries.ENTITIES.getValue(entityId);
         if (entityEntry == null || !EntityLiving.class.isAssignableFrom(entityEntry.getEntityClass())) return null;

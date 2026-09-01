@@ -8,6 +8,11 @@ The format is based on Keep a Changelog and this project adheres to Semantic Ver
 - Semantic Versioning: https://semver.org/spec/v2.0.0.html
 
 
+## [1.5.3] - 2026-09-01
+### Added
+- Add an exclusion list in config for the GUI/loot dump, to hide some mobs that are not useful to track (e.g., summons, fake mobs, etc.).
+
+
 ## [1.5.2] - 2026-08-31
 ### Changed
 - Sort dumped JEI loot by drop chance when selecting an item in JEI, instead of entity ID. This is usually more useful, to get an idea of which mobs to farm for a specific item. Full mobs list is still sorted by entity ID, and other ways only target a single mob, so they are unaffected.
